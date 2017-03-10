@@ -1,0 +1,98 @@
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HTML5 y CSS Formulario de contacto</title>
+    <link href="StyleSheet.css" rel="stylesheet" />  
+    
+   <style>
+       
+       /*padre*/
+			div
+			{
+			background-color:white;
+			}
+			/*Hijos*/
+			div div
+			{
+			background-color:white;
+			margin:10px;
+			padding: 20px;
+			width:300px;
+			height:110px;
+			}
+			
+
+			
+			/*Segundo ejemplo*/
+			body>div:nth-child(2){
+			background-color:white;
+			
+			}
+			
+			body>div:nth-child(2) div{
+			display:inline-block;
+			}				
+    
+   </style>       
+    </head>
+<body>
+    <div>	    
+	</div>
+           	
+	
+        
+        <div>
+        
+		<center> Cuentanos ¿Que es lo que más te gusta?</center>
+        <div>  <div>  <form  class="contact_form" action="#" id="contact_form" runat="server"><label for="name">Cedula:</label>
+                    <input type="text" placeholder="0123456789" required />   </form></div></div>
+        
+        <div>  <div><form  class="contact_form" action="#" id="contact_form" runat="server"> <label for="email">Nombre:</label>
+                    <input type="text" placeholder="Andres Camilo"  required /> </form>  </div></div>
+          
+        
+	    <div>  <div> <form  class="contact_form" action="#" id="contact_form" runat="server">  <label for="Apellido">Apellidos:</label>
+                    <input type="text"  placeholder="Hoyos Orrego" required /> </form>  </div></div>
+        
+        <div>  <div> <form  class="contact_form" action="#" id="contact_form" runat="server"> <label for="Celphone">Telefono Celular:</label>
+                    <input type="number" placeholder="1234567" />
+                    <span class="form_hint">Formato correcto: 1111111111</span> </form></div></div>  
+        
+		<div>  <div> <form  class="contact_form" action="#" id="contact_form" runat="server">  <label for="phone">Telefono:</label>
+                    <input type="number" name="website" placeholder="1234567891" />
+                    <span class="form_hint">Formato correcto: 1111111</span></form></div></div>
+        
+        <div>  <div> <form  class="contact_form" action="#" id="contact_form" runat="server"> <label for="adress">Direccion:</label>
+                    <input type="text" placeholder="" name="adres" />  </form>   </div></div>
+
+
+
+        <div>  <div> <form  class="contact_form" action="#" id="contact_form" runat="server"> <label for="email">Correo Electrónico:</label>
+                    <input type="text" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" name="email" required />
+             <span class="form_hint">Formato correcto: "name@something.com"</span></form> </div></div>
+            
+            <div>  <div> <form  class="contact_form" action="#" id="contact_form" runat="server"> <label for="paswword">Contraseña:</label>
+                    <input type="password" name="password" placeholder="" required /></form> </div></div>
+        
+        <div>  <div>  <form  class="contact_form" action="#" id="contact_form" runat="server"> <label for="paswword"> Validar Contraseña :</label>
+                    <input type="password" name="website" placeholder="" required />  </form>    </div></div>
+    
+        
+	</div>
+    
+     <center>
+    <form  class="contact_form" action="#" id="contact_form" runat="server"> <button class="submit" type="submit">Cancelar</button>
+        
+        <form  class="contact_form" action="#" id="contact_form" runat="server"> <button class="submit" type="submit">  Siguiente  </button></form>
+    </center>
+    
+  
+   
+     
+   
+</body>
+</html>
