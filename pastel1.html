@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <title>Jugando con CSS - Desarrollo de Software en la Web</title>
+
+<style>
+
+/* Padre */
+div {
+	background-color: #EEEEEE;
+	
+}	
+
+/* Hijos */
+div div {
+	background-color: #C0C0C0;
+	margin: 10px;
+	padding: 20px;
+	width: 80px;
+	height: 80px;
+}
+
+/* Pimer ejemplo */
+
+/* Padre 1 */
+body>div:nth-child(1) {
+	background-color: #FFAAAA;
+	display: block;
+}
+
+/* Hijos del padre 1 */
+body>div:nth-child(1) div {
+	
+}
+
+/* Segundo ejemplo */
+
+body>div:nth-child(2) {
+	background-color: #AAFFAA;
+}
+
+body>div:nth-child(2) div {
+	display: inline-block;
+
+}
+
+/* Tercer ejemplo */
+
+body>div:nth-child(3) {
+	background-color: #AAAAFF;
+}
+
+body>div:nth-child(3) div {
+	display: inline;
+	
+}
+
+/* Cuarto ejemplo */
+
+body>div:nth-child(4) {
+	background-color: #FFAAFF;
+}
+
+body>div:nth-child(4) div {
+	display: flex;
+	
+}
+
+</style>
+
+  </head>
+  <body>
+  
+  <div >
+	Padre  display: block;
+	<div>Hijo 1</div>
+	<div>Hijo 2</div>
+	<div>Hijo 3</div>
+  
+  </div>
+
+  <div >
+	Padre display: inline-block;
+	<div>Hijo 1</div>
+	<div>Hijo 2</div>
+	<div>Hijo 3</div>
+  
+  </div>
+  
+   <div >
+	Padre 	display: inline;
+
+	<div>Hijo 1</div>
+	<div>Hijo 2</div>
+	<div>Hijo 3</div>
+  
+  </div>
+
+   <div >
+	Padre 	display: flex;
+
+	<div>Hijo 1</div>
+	<div>Hijo 2</div>
+	<div>Hijo 3</div>
+  
+  </div>
+  
+  
+  
+  
+  
+  
+  </body>
+</html>

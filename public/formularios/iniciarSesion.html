@@ -1,0 +1,188 @@
+<html>
+  <head>
+    <title>Iniciar Sesion</title>
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script>
+
+    function clicks(){
+      usuario1.value = "";
+    }
+
+    function clicksa(){
+      contrasena1.value = "";
+    }
+    //Obtiene los datos de los usurios que ya se encuentran registrados en el sistema
+    function cargar(){
+      var archivo;
+      //Obtiene los datos que hay en el archivo json que funciona como una BD
+      $.get("Usuario.json",function(data){
+        console.log("Se han cargado los datos" + data);
+        archivo = $.parseJSON(data.toString());
+        console.log(archivo.length);
+        //Recorre todos los valores del arreglo de objetos.
+        archivo.forEach(verificaExistencia);
+
+      });
+
+      function verificaExistencia(value,index,vector){
+        console.log(value.correo + value.contrasena);
+        var pagina="";
+        var usuario="";
+        var contrasena = "";
+        var correo = "";
+        var contrasena1 = "";
+        var html="";
+        usuario = document.getElementById('usuario1').value;
+        contrasena = document.getElementById('contrasena1').value;
+        correo = value.correo;
+        contrasena1 = value.contrasena;
+        //Verificación de los datos ingresados
+        if( correo == usuario && contrasena == contrasena1  ){
+          pagina = "profileR.html";
+          window.alert('Bienvenido a bazar una experiencia única');
+          enviarPagina(pagina);
+        }else{
+          //window.alert("Por favor verifique sus datos");
+        }
+
+
+      }
+      //Permite pasar de una pagina a otra
+      function enviarPagina(pagina){
+        document.inicio.action = pagina;
+        document.inicio.submit();
+      }
+
+
+
+
+
+    }
+    </script>
+    <style>
+
+    body{
+      font-family: Arial, Verdana;
+      font-size: 18px;
+    }
+    #logoAplicacion{
+
+    }
+
+    #mensaje{
+      margin-top: 10px;
+      font-size: 27px;
+    }
+
+    #mensaje2{
+      font-size: 27px;
+      margin-top: 10px;
+    }
+
+    #minicontenedor{
+      margin-top: 20px;
+
+      padding: 80px;
+      background-color:#3366CC;
+      width: 170px;
+      height: 180px;
+
+    }
+
+    #imagenUsuario{
+
+      background-image: url("http://www.eltiempo.com/contenido/multimedia/fotos/deportes18/IMAGEN/IMAGEN-16649053-0.jpg");
+      height: 100px;
+      width: 100px;
+      /*los siguientes valores son independientes del tamaño del círculo */
+      background-repeat: no-repeat;
+      background-position: 50%;
+      border-radius: 50%;
+      background-size: 100% auto;
+    }
+
+    #usuario{
+      margin-top: 10px;
+      margin-left: -20px;
+      width: 200px;
+      border: 5px solid #DBE1EB;
+      font-size: 18px;
+      font-family: Arial, Verdana;
+      border-radius: 8px;
+      -moz-border-radius: 8px;
+      -webkit-border-radius: 8px;
+      -o-border-radius: 8px;
+      background: #87CEEB;
+
+    }
+
+    #contraseña{
+      margin-top: 10px;
+      margin-left: -20px;
+      width: 200px;
+      border: 5px solid #DBE1EB;
+      font-size: 18px;
+      font-family: Arial, Verdana;
+      border-radius: 8px;
+      -moz-border-radius: 8px;
+      -webkit-border-radius: 8px;
+      -o-border-radius: 8px;
+      background: #87CEEB;
+
+    }
+
+    #continuar{
+      margin-top: 10px;
+      margin-left: -20px;
+      width: 200px;
+      border: 5px solid #DBE1EB;
+      font-size: 18px;
+      font-family: Arial, Verdana;
+      border-radius: 4px;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      -o-border-radius: 4px;
+      background: #87CEEB;
+
+
+    }
+    #usuario1{
+      width: 200px;
+      font-family: Arial, Verdana;
+      font-size: 15px;
+    }
+
+    #contrasena1{
+      width: 200px;
+      font-family: Arial, Verdana;
+      font-size: 15px;
+    }
+
+    #continuar1{
+      width: 200px;
+    }
+    </style>
+
+  </head>
+    <body>
+      <center>
+      <form name="inicio" action="" method="post">
+          <div id="granContenedor">
+            <div id="logoAplicacion" onclick="" ><img src="Image/logoBazar.png" ></div>
+            <div id="mensaje" >Bazzar. Un mundo lleno de opciones.</div>
+            <div id="mensaje2">Inicia sesi&#243;n para empezar a divertirte</div>
+            <div id="miniContenedor">
+              <div id="imagenUsuario"></div>
+              <div id="usuario"><input type="text" placeholder="Correo" name="usuario1" id="usuario1"  onclick="clicks()" ></div>
+              <div id="contraseña"><input type="password" placeholder="Contrase&#241;a" name="contrasena1" id="contrasena1"  onclick="clicksa()" ></div>
+              <div id="continuar"><input type="button"  onclick="cargar()" id="continuar1" value="INGRESAR"></div>
+            </div>
+
+          </div>
+
+      </form>
+      <center>
+
+    </body>
+
+</html>

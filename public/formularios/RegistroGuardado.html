@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Registro de usuarios nuevos</title>
+    <link href="StyleSheet.css" rel="stylesheet" />
+<script>
+//Permitirá obtener los datos del usuario que se registre en un objeto JSON.
+  function obtenerDatosUsuario(){
+      //ALmacenando los datos
+    var usuario = {};
+    usuario.cedula = document.getElementById('cedula').value;
+    usuario.nombre = document.getElementById('nombre').value;
+    usuario.apellido = document.getElementById('apellido').value;
+    usuario.cel = document.getElementById('telCel').value;
+    usuario.telefono = document.getElementById('tel').value;
+    usuario.direccion = document.getElementById('direccion').value;
+    usuario.correo = document.getElementById('correo').value;
+    usuario.contrasena = document.getElementById('contrasena').value;
+    usuario.banco = document.getElementById('id')
+    //Guardar datos en un archivo JSON
+    var serializar = "";
+    serializar = JSON.stringify(usuario);
+      window.alert(serializar);
+    var request = new XMLHttpRequest();
+      // Abrir una peticion HTTP POST a la url deseado y no asincrono.
+      request.open("POST", "/registrar",false);
+      //Ejecuta la petición HTTP
+      request.send(serializar);
+
+  }
+</script>
+   <style>
+
+       /*padre*/
+			div
+			{
+			background-color:white;
+			}
+			/*Hijos*/
+			div div
+			{
+			background-color:white;
+			margin:10px;
+			padding: 20px;
+			width:300px;
+			height:110px;
+			}
+
+      #contenRegistro{
+        margin-left: 800px;
+
+        margin: 0px;
+        width: 80px;
+        height: 20px;
+        padding: 0px;
+
+      }
+
+      #contenCancel{
+        margin-left: 600px;
+
+        width: 80px;
+        height: 20px;
+        padding: 0px;
+        margin: 0px;
+      }
+
+
+
+			/*Segundo ejemplo*/
+			body>div:nth-child(2){
+			background-color:white;
+
+			}
+
+			body>div:nth-child(2) div{
+			display:inline-block;
+			}
+
+   </style>
+    </head>
+<body>
+    <div>
+	</div>
+
+
+
+        <div>
+
+		<center> Cuentanos ¿Que es lo que más te gusta?</center>
+        <div>  <div>  <form  class="contact_form" action="#" id="contact_form" runat="server"><label for="name">Cedula:</label>
+                    <input type="text" placeholder="0123456789" id="cedula"required />   </form></div></div>
+
+        <div>  <div><form  class="contact_form" action="#" id="contact_form" runat="server"> <label for="email">Nombre:</label>
+                    <input type="text" placeholder="Andres Camilo"id="nombre"  required /> </form>  </div></div>
+
+
+	    <div>  <div> <form  class="contact_form" action="#" id="contact_form" runat="server">  <label for="Apellido">Apellidos:</label>
+                    <input type="text"  placeholder="Hoyos Orrego" id="apellido" required /> </form>  </div></div>
+
+        <div>  <div> <form  class="contact_form" action="#" id="contact_form" runat="server"> <label for="Celphone">Telefono Celular:</label>
+                    <input type="number" placeholder="1234567" id="telCel" />
+                    <span class="form_hint">Formato correcto: 1111111111</span> </form></div></div>
+
+		<div>  <div> <form  class="contact_form" action="#" id="contact_form" runat="server">  <label for="phone">Telefono:</label>
+                    <input type="number" name="website" placeholder="1234567891" id="tel" />
+                    <span class="form_hint">Formato correcto: 1111111</span></form></div></div>
+
+        <div>  <div> <form  class="contact_form" action="#" id="contact_form" runat="server"> <label for="adress">Direccion:</label>
+                    <input type="text" placeholder="" name="adres"id="direccion" />  </form>   </div></div>
+
+
+
+        <div>  <div> <form  class="contact_form" action="#" id="contact_form" runat="server"> <label for="email">Correo Electrónico:</label>
+                    <input type="text" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" name="email" required id="correo" />
+             <span class="form_hint">Formato correcto: "name@something.com"</span></form> </div></div>
+
+            <div>  <div> <form  class="contact_form" action="#" id="contact_form" runat="server"> <label for="paswword">Contraseña:</label>
+                    <input type="password" name="password" placeholder="" required id="contrasena"/></form> </div></div>
+
+        <div>  <div>  <form  class="contact_form" action="#" id="contact_form" runat="server"> <label for="paswword"> Validar Contraseña :</label>
+                    <input type="password" name="website" placeholder="" required />  </form>    </div></div>
+
+                    <div><div> <form class="contact_form" action="#" id="contact_form" runat"server"> <select id="establecerBanco" name="Bancos">
+                      <option value="" >Selecciona un banco</option>
+                      <option value="Banco de bogota">Banco de bogota</option>
+                      <option value="Bancolombia">Bancolombia</option>
+                      <option value="Banco Agrarario">Banco agrario</option>
+                      <option value="Davivienda">Davivienda</option>
+                      <option value="AV villas">Av villas</option>
+                    </select></form></div></div>
+                    <center>
+                    <div id="contenRegistro"><a id="r" href="gustosA.html"
+                    title="CatalogoPublico">Siguiente</a></div>
+
+                    <div id="contenCancel"><a id="r" href="homeS.html"
+                    title="CatalogoPublico">Cancelar</a></div>
+
+                     <div id="continuar"><input type="button"  onclick="obtenerDatosUsuario()" id="continuar1" value="REGISTRAR"></div>
+                  </center>
+
+
+
+	</div>
+
+
+
+
+
+
+
+</body>
+</html>
