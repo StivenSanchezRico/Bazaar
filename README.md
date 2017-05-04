@@ -4,7 +4,7 @@ Se trata de una aplicación que permite la venta y compra de productos a traves d
 plataforma denominada Baazar.
 
 
-#Integrantes 
+# Integrantes.
 -Santiago Gálvez Gaviria
 -Stiven Sanchez Rico
 -Andres Camilo Hoyos
