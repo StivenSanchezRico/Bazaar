@@ -1,4 +1,4 @@
-# node-js-getting-started
+# Aplicación Web de ventas de productos.
 
 A barebones Node.js app using [Express 4](http://expressjs.com/).
 
@@ -26,7 +26,7 @@ $ heroku open
 ```
 or
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+[![Hola mundo](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 ## Documentation
 
