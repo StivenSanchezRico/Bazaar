@@ -64,6 +64,7 @@
         background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
         background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
         color: #2E3133;
+		
       }
 	  
 	  #carrito{
@@ -190,7 +191,15 @@
   function encontrarCategoria(){
 	//Mostrar categoria
 	var categoria = document.getElementById('buscarCategoria').value;
-	console.log(categoria);
+	if(categoria=='autMov'){
+	var auto1 = document.getElementById('miniContenedor');
+	//auto1.style.display = "none"
+	var auto2 = document.getElementById('miniContenedor1');
+	
+	}
+	else if(categoria=='tecno'){
+		
+	}
 	
   }
   </script>
@@ -204,12 +213,12 @@
     <div>
       <select id="buscarCategoria" name="Categorias">
         <option value="" selected="selected">- Selecciona una categoria</option>
-        <option value="Automoviles y motos"> Automoviles y motos </option>
-        <option value="Tecnolgía"> Tecnolog&#237;a </option>
+        <option value="autMov"> Automoviles y motos </option>
+        <option value="tecno"> Tecnolog&#237;a </option>
         <option value="ropaAseo"> Ropa Y Calzado </option>
-        <option value="Tecnolgía"> Muebles y jugueter&#237;a </option>
-        <option value="Tecnolgía"> Accesorios y herramientas </option>
-        <option value="Tecnolgía"> Audiovisuales  PC´S </option>
+        <option value="mueblesJuguetes"> Muebles y jugueter&#237;a </option>
+        <option value="accesoriosHerramientas"> Accesorios y herramientas </option>
+        <option value="audioVisuales"> Audiovisuales  PC´S </option>
 
       </select>
     </div>
