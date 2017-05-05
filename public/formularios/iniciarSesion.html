@@ -1,62 +1,36 @@
 <html>
   <head>
     <title>Iniciar Sesion</title>
-    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script>
-
-    function clicks(){
-      usuario1.value = "";
+    function salvarCampos(){
+      var usuario = {};
+      usuario.correo = document.getElementById('usuario1').value;
+      usuario.contrasena = document.getElementById('contrasena1').value;
+      return usuario;
     }
+    function ingresar() {
+      var usuario = salvarCampos();
 
-    function clicksa(){
-      contrasena1.value = "";
-    }
-    //Obtiene los datos de los usurios que ya se encuentran registrados en el sistema
-    function cargar(){
-      var archivo;
-      //Obtiene los datos que hay en el archivo json que funciona como una BD
-      $.get("Usuario.json",function(data){
-        console.log("Se han cargado los datos" + data);
-        archivo = $.parseJSON(data.toString());
-        console.log(archivo.length);
-        //Recorre todos los valores del arreglo de objetos.
-        archivo.forEach(verificaExistencia);
+      var serializado = "";
+      //Serializar el objeto como una cadena de texto JSON
+      serializado = JSON.stringify( usuario );
+      //Crear un objeto para hacer peticiones HTTP
+      var request = new XMLHttpRequest();
+      //Abrir una peticion HTTP POST a la url deseado y no asincronico
+      request.open("POST","/login",false);
+      //Ejecuta la peticion HTTP
+      request.send(serializado);
 
-      });
+      var respuesta;
+      respuesta = JSON.parse(request.responseText);
+      console.log(respuesta);
 
-      function verificaExistencia(value,index,vector){
-        console.log(value.correo + value.contrasena);
-        var pagina="";
-        var usuario="";
-        var contrasena = "";
-        var correo = "";
-        var contrasena1 = "";
-        var html="";
-        usuario = document.getElementById('usuario1').value;
-        contrasena = document.getElementById('contrasena1').value;
-        correo = value.correo;
-        contrasena1 = value.contrasena;
-        //Verificación de los datos ingresados
-        if( correo == usuario && contrasena == contrasena1  ){
-          pagina = "profileR.html";
-          window.alert('Bienvenido a bazar una experiencia única');
-          enviarPagina(pagina);
-        }else{
-          //window.alert("Por favor verifique sus datos");
-        }
-
-
+      if(respuesta.estado == 'OK'){
+        //Login correctos
+        window.location.href = '/profileR.html'
+      }else{
+      window.alert('login incorrecto');
       }
-      //Permite pasar de una pagina a otra
-      function enviarPagina(pagina){
-        document.inicio.action = pagina;
-        document.inicio.submit();
-      }
-
-
-
-
-
     }
     </script>
     <style>
@@ -173,11 +147,10 @@
             <div id="mensaje2">Inicia sesi&#243;n para empezar a divertirte</div>
             <div id="miniContenedor">
               <div id="imagenUsuario"></div>
-              <div id="usuario"><input type="text" placeholder="Correo" name="usuario1" id="usuario1"  onclick="clicks()" ></div>
-              <div id="contraseña"><input type="password" placeholder="Contrase&#241;a" name="contrasena1" id="contrasena1"  onclick="clicksa()" ></div>
-              <div id="continuar"><input type="button"  onclick="cargar()" id="continuar1" value="INGRESAR"></div>
+              <div id="usuario"><input type="text" placeholder="Correo" name="usuario1" id="usuario1"  ></div>
+              <div id="contraseña"><input type="password" placeholder="Contrase&#241;a" name="contrasena1" id="contrasena1"  ></div>
+              <div id="continuar"><input type="button"  id="continuar1" value="INGRESAR" onclick="ingresar()"></div>
             </div>
-
           </div>
 
       </form>

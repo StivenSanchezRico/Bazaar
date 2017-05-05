@@ -22,16 +22,23 @@
     usuario.direccion = document.getElementById('direccion').value;
     usuario.correo = document.getElementById('correo').value;
     usuario.contrasena = document.getElementById('contrasena').value;
-    usuario.banco = document.getElementById('id')
+    usuario.banco = document.getElementById('establecerBanco').value;
     //Guardar datos en un archivo JSON
     var serializar = "";
     serializar = JSON.stringify(usuario);
-      window.alert(serializar);
     var request = new XMLHttpRequest();
       // Abrir una peticion HTTP POST a la url deseado y no asincrono.
       request.open("POST", "/registrar",false);
       //Ejecuta la petición HTTP
       request.send(serializar);
+
+      var respuesta;
+      respuesta = JSON.parse(request.responseText);
+      if(respuesta.estado == 'Este usuario ya existe en nuestra pagina web'){
+        window.alert('Este usuario ya existe en nuestra pagina web');
+      }else{
+        window.location.href = '/gustosA.html';
+      }
 
   }
 </script>
@@ -93,7 +100,7 @@
 
         <div>
 
-		<center> Cuentanos ¿Que es lo que más te gusta?</center>
+		<center>Ingresa tus datos personales </center>
         <div>  <div>  <form  class="contact_form" action="#" id="contact_form" runat="server"><label for="name">Cedula:</label>
                     <input type="text" placeholder="0123456789" id="cedula"required />   </form></div></div>
 

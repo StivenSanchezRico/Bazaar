@@ -40,12 +40,14 @@ function atenderServidor(request, response){
         retornarArchivo(request,response,path.substr(1));
     }
     //Almacena los datos del usuario
-    if(request.url=='/registrar'){
+  else if(request.url=='/registrar'){
         guardarRegistro(request,response);
     }
 
-  //leerArchivos(request.url);
-
+  //Verifica la existencia de un usuario
+  else if(request.url=='/login'){
+        login(request,response);
+  }
 
 }
 
@@ -106,10 +108,67 @@ function guardarRegistro(request,response){
     function recibir(data){
         console.log(data.toString());
         var usr = JSON.parse(data.toString());
-        //Agregar al vector
+
+        var estado = false;
+
+        //Verifica que el usuario no se haya registrado anteriormente
+        for(var i = 0; i < usuarios.length; i++){
+          if(usuarios[i].cedula == usr.cedula && usuarios[i].cel == usr.cel && usuarios[i].telefono == usr.telefono &&
+             usuarios[i].correo == usr.correo){
+
+               var resp = {};
+               //Envia una respuesta
+               resp.estado = 'Este usuario ya existe en nuestra pagina web';
+               estado = true;
+               response.end(JSON.stringify(resp));
+          }
+        }
+        //Si no se registro anteriormente procede a guardarlo en el archivo JSON y a pasar a la siguiente pagina
+        if(estado == false){
         usuarios.push(usr);
-        response.end("Ya recibimos el usurio");
         console.log(usuarios);
         fs.writeFile('usuario.json',JSON.stringify(usuarios),null);
+        var resp = {};
+        resp.estado = 'Usuario registrado satisfactoriamente';
+        resp.url = '/gustosA.html';
+        response.end(JSON.stringify(resp));
+      }
     }
+}
+
+//verifica la existencia de un usuario en el archivo JSON
+function login(request,response){
+  request.on("data",recibir);
+
+  function recibir(data) {
+    var usr = JSON.parse( data.toString() );
+    //Realiza la busqueda en el arhivo JSON
+    for(var i = 0; i < usuarios.length; i++){
+      if(usuarios[i].correo == usr.correo && usuarios[i].contrasena == usr.contrasena){
+        //El usuario y la clave son correctos
+        //Retornamos la respuesta
+
+        var resp = {};
+        resp.estado = 'OK';
+        resp.url = '/profileR.html';
+        //Enviar cookie al navegador
+        response.writeHead(200,{
+          'Set-cookie':  'the-cookie'
+        });
+        //Serializar el objeto y enviar de vuelta al navegador
+        response.end(JSON.stringify(resp));
+        return;
+
+      }
+  }
+
+
+  //Si llega aqui, es porque no coincide con ninguno
+  var resp = {};
+  resp.estado ='login incorrecto';
+  response.end(JSON.stringify(resp));
+  //Retornar un error
+
+  }
+
 }
