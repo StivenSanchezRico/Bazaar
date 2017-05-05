@@ -65,6 +65,28 @@
         background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
         color: #2E3133;
       }
+	  
+	  #carrito{
+	  margin-left: 500px;
+        margin-top: -500;
+        border: 1px solid #DBE1EB;
+        font-size: 18px;
+        font-family: Arial, Verdana;
+        padding-left: 7px;
+        padding-right: 7px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -o-border-radius: 4px;
+        background: #FFFFFF;
+        background: linear-gradient(left, #FFFFFF, #F7F9FA);
+        background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
+        background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
+        background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
+        color: blue;
+	  }
 
       #buscarProductos{
   border: 1px solid #DBE1EB;
@@ -164,6 +186,14 @@
 
 
   </style>
+  <script>
+  function encontrarCategoria(){
+	//Mostrar categoria
+	var categoria = document.getElementById('buscarCategoria').value;
+	console.log(categoria);
+	
+  }
+  </script>
 </head>
 <body>
   <div id = "contenedor" >
@@ -183,6 +213,9 @@
 
       </select>
     </div>
+	<div>
+		<input type="button" name="carritoCompras" value="Carrito de compras" id="carrito"/>
+	</div>
     <div> <input type="button" name="buscar" value="Buscar" id="buscar"/>
     </div>
 
@@ -194,7 +227,7 @@
 
     <div id="miniContenedor"><img src="https://img.actualidadmotor.com/wp-content/uploads/2014/11/ford-fiesta-tdci-2-150x150.jpg"></br><h2>50'000.000</h2></br>
       <p>Comercializadora Carri</p></br>
-      <input type="button"  value="A&#241;adir al carrito de compras" id="añadir"</div>
+      <input type="button" onclick="encontrarCategoria()"  value="A&#241;adir al carrito de compras" id="añadir"</div>
 
     <div id="miniContenedor1"><img src="Image/carro.jpg"></br><h2>80'000.000</h2></br>
         <p>Comercializadora Carri</p></br>
