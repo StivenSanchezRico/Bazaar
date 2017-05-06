@@ -5,8 +5,10 @@ var hoy = new Date();
 
 //Vector que va a almacenar a los usurios registrados
 var usuarios = [];
+var venticas = [];
 
-var lecturaDatos = fs.readFile("Usuario.json",cargarUsuarios);
+var lecturaDatos = fs.readFile("ventas.json",cargarUsuarios);
+//var lecturaVentas = fs.readFile("ventas.json",cargarVentas);
 //Funcion que permite observar que usuarios se
 // encuentran en la base de datos
 function cargarUsuarios(error,data){
@@ -20,6 +22,16 @@ function cargarUsuarios(error,data){
     }
 }
 
+function cargarVentas(error,data){
+    if(error==null){
+        venticas = JSON.parse(data); //Destr
+        console.log("Las ventas son");
+        console.log(venticas);
+    }else{
+        console.log(error);
+        response.end(error.toString());
+    }
+}
 //Crear una instacncia del servidor HTTP
 var server = http.createServer(atenderServidor);
 console.log('servidor iniciado');
@@ -47,6 +59,10 @@ function atenderServidor(request, response){
   //Verifica la existencia de un usuario
   else if(request.url=='/login'){
         login(request,response);
+  }
+  if(request.url=='/ventas'){
+    guardarVentas(request,response);
+
   }
 
 }
@@ -171,4 +187,26 @@ function login(request,response){
 
   }
 
+}
+
+function guardarVentas(request,response){
+  request.on("data",recibir);
+  function recibir(data){
+    var ven = JSON.parse(data.toString());
+    usuarios.push(ven);
+
+    console.log(venticas);
+    //console.log(venta);
+    fs.writeFile('ventas.json',JSON.stringify(usuarios),null);
+  }
+}
+
+function recibir(data){
+    console.log(data.toString());
+    var usr = JSON.parse(data.toString());
+    //Agregar al vector
+    venticas.push(usr);
+    response.end("Ya recibimos el usurio");
+    console.log(usuarios);
+    fs.writeFile('personas.json',JSON.stringify(usuarios),null);
 }

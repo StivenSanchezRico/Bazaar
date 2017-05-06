@@ -3,13 +3,7 @@
   <title>CATALOGO PUBLICO </title>
   <style>
       #contenedor{
-
-        margin: 10px;
-      	padding: 620px;
-      	width: 80px;
-      	height: 80px;
-        display: inline-flex;
-      }
+      	}
 
         body>div:nth-child(1) {
 	        display: block;
@@ -23,8 +17,8 @@
 
 
       #buscar{
-        margin-top: -500;
-        margin-left: -150;
+        margin-left: 750px;
+        margin-top: -110px;
         border: 1px solid #DBE1EB;
         font-size: 18px;
         font-family: Arial, Verdana;
@@ -45,8 +39,8 @@
       }
 
       #buscarCategoria{
-        margin-left: 100px;
-        margin-top: -500;
+        margin-left: 450px;
+        margin-top: -110px;
         border: 1px solid #DBE1EB;
         font-size: 18px;
         font-family: Arial, Verdana;
@@ -64,12 +58,13 @@
         background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
         background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
         color: #2E3133;
-		
+
       }
-	  
+
 	  #carrito{
-	  margin-left: 500px;
-        margin-top: -500;
+	     margin-left: 1125;
+       margin-top: -200px;
+
         border: 1px solid #DBE1EB;
         font-size: 18px;
         font-family: Arial, Verdana;
@@ -107,20 +102,20 @@
   background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
   background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
   color: #2E3133;
-  margin-left: -500px;
-  margin-top: -500px;
+  margin-left: 30px;
+  margin-top: 20;
       }
 
       #logo{
-        margin-left: -600px;
-        margin-top: -630px;
 
+        margin-top: 50px;
+        margin-left: 30px;
       }
 
       #miniContenedor{
-        margin-left: -500px;
-        margin-right: 500px;
-        width: 260px;
+        margin-left: 30px;
+
+        width: 300px;
         height: 450px;
         border: 1px solid #87CEEB;
         font-size: 18px;
@@ -131,9 +126,8 @@
       }
 
       #miniContenedor1{
-        margin-left: 300px;
-        margin-right: -300px;
-        margin-top: -375px;
+        margin-top: -400px;
+        margin-left: 350px;
         width: 300px;
         height: 450px;
         border: 1px solid #87CEEB;
@@ -142,23 +136,46 @@
         text-align: center;
       }
 
-      #miniContenedor2{
+      #miniContenedorB{
+        margin-top: -375px;
         margin-left: 340px;
-        margin-right: -340px;
-        margin-top: -410px;
         width: 300px;
         height: 450px;
         border: 1px solid #87CEEB;
         font-size: 18px;
         font-family: Arial, Verdana;
         text-align: center;
+      }
+
+      #miniContenedorC{
+        margin-left: -692px;
+        border: 1px solid #87CEEB;
+        margin-top: 110px;
+        width: 300px;
+        height: 450px;
+
+      }
+
+      #miniContenedorD{
+        margin-top: -380px;
+        margin-left: 348px;
+        border: 1px solid #87CEEB;
+        width: 300px;
+        height: 450px;
+      }
+
+      #miniContenedorE{
+        margin-top: -375px;
+        border: 1px solid #87CEEB;
+        margin-left: 341px;
+        width: 300px;
+        height: 450px;
       }
 
       #titulo{
-        margin-left: -500px;
-        margin-right: 500px;
-        margin-top: 100px;
-        width: 1000px;
+        margin-top: 20;
+        margin-left: 30;
+        width: 600px;
         height: 50px;
       }
 
@@ -166,7 +183,7 @@
         font-size: 5em;
       }
 
-      #añadir{
+      #anadir1,#anadir2,#anadir3,#anadir4,#anadir5,#anadir6{
         border: 5px solid #DBE1EB;
         font-size: 18px;
         font-family: Arial, Verdana;
@@ -188,27 +205,93 @@
 
   </style>
   <script>
+  //Pendiente, para su evaluación
   function encontrarCategoria(){
 	//Mostrar categoria
 	var categoria = document.getElementById('buscarCategoria').value;
 	if(categoria=='autMov'){
 	var auto1 = document.getElementById('miniContenedor');
-	//auto1.style.display = "none"
+	auto1.style.display = 'none';
 	var auto2 = document.getElementById('miniContenedor1');
-	
+
 	}
 	else if(categoria=='tecno'){
-		
+
 	}
-	
+
   }
+
+  function verCarrito(idboton){
+    var total=0;
+    var producto = {};
+    if('anadir1'==idboton){
+      producto.nombre = "Chevrolet Spark";
+      producto.valor = "$50'000.000"
+      total+=5000000;
+      producto.consol = total;
+    }
+    if('anadir2'==idboton){
+      producto.nombre = "Portatil ASUS";
+      producto.valor = "$1'200.000"
+      total+=1200000;
+      producto.consol = total;
+
+    }
+    if ('anadir3'==idboton) {
+      producto.nombre = "Pulsar NS 200";
+      producto.valor = "$1'200.000"
+      total+=5000000;
+      producto.consol = total;
+
+    }
+    if ('anadir4'==idboton) {
+      producto.nombre = "Sudadera Adidas";
+      producto.valor = "$80000"
+      total+=80000;
+      producto.consol = total;
+
+    }
+    if ('anadir5'==idboton) {
+      producto.nombre = "Martillo Industrial";
+      producto.valor = "$40000"
+      total+=40000;
+      producto.consol = total;
+    }
+    if ('anadir6'==idboton) {
+      producto.nombre = "Tocador Pieza";
+      producto.valor = "$200000"
+      total+=200000;
+      producto.consol = total;
+    }
+
+    var transformar="";
+    transformar = JSON.stringify(producto);
+    window.alert(transformar);
+    var request = new XMLHttpRequest();
+    request.open("POST","/ventas");
+    request.send(transformar);
+
+    }
+
+
   </script>
 </head>
-<body>
-  <div id = "contenedor" >
+<body >
+  <div id = "contenedor" background="blue">
     <form>
+      <div id="logo">
+      <img src ="https://bazaar2017.herokuapp.com/formularios/Image/logoBazar.png">
+      </div>
+
     <div><input name="busqueda" class ="textbox"type="text" id = "buscarProductos" size = "30" maxlength="200"
     title="Buscar productos" placeholder="Escriba una palabra clave"/>
+    </div>
+
+    <div id="titulo"><h2>Anuncios publicados por los usuarios ultimamente </h2></div>
+    <div>
+  		<input type="button" name="carritoCompras" value="Ver carrito de compras" id="carrito"/>
+  	</div>
+    <div> <input type="button" name="buscar" value="Buscar" id="buscar"/>
     </div>
     <div>
       <select id="buscarCategoria" name="Categorias">
@@ -222,33 +305,30 @@
 
       </select>
     </div>
-	<div>
-		<input type="button" name="carritoCompras" value="Carrito de compras" id="carrito"/>
-	</div>
-    <div> <input type="button" name="buscar" value="Buscar" id="buscar"/>
-    </div>
 
-    <div id="logo">
-    <img src ="https://bazaar2017.herokuapp.com/formularios/Image/logoBazar.png">
-    </div>
+    <div id="miniContenedor" ><img id="imagen1"src="https://img.actualidadmotor.com/wp-content/uploads/2014/11/ford-fiesta-tdci-2-150x150.jpg"></br><h2>$50'000.000</h2></br>
+      <p>Chevrolet Spark</p></br></br>
+      <input type="button" onclick="verCarrito(this.id)"  value="A&#241;adir al carrito de compras" id="anadir1"</div>
 
-    <div id="titulo"><h2>Anuncios publicados por los usuarios ultimamente </h2></div>
+    <div id="miniContenedor1"><img src="Image/compu.jpg"></br><h2>$1'200.000</h2></br>
+        <p>Portatil ASUS</p></br>
+        <input type="button" onclick="verCarrito(this.id)"value="A&#241;adir al carrito de compras" id="anadir2"</div>
 
-    <div id="miniContenedor"><img src="https://img.actualidadmotor.com/wp-content/uploads/2014/11/ford-fiesta-tdci-2-150x150.jpg"></br><h2>50'000.000</h2></br>
-      <p>Comercializadora Carri</p></br>
-      <input type="button" onclick="encontrarCategoria()"  value="A&#241;adir al carrito de compras" id="añadir"</div>
+      <div id="miniContenedorB"><img src="Image/moto.jpg"></br><h2>$5'000.000</h2></br>
+        <p>Pulsar NS 200</p></br>
+        <input type="button"  onclick="verCarrito(this.id)" value="A&#241;adir al carrito de compras" id="anadir3"</div>
 
-    <div id="miniContenedor1"><img src="Image/carro.jpg"></br><h2>80'000.000</h2></br>
-        <p>Comercializadora Carri</p></br>
-        <input type="button"  value="A&#241;adir al carrito de compras" id="añadir"</div>
+        <div id="miniContenedorC"><img src="Image/pantalon.jpg"></br><h2>$80000</h2></br>
+          <p>Sudadera Adidas</p></br>
+        <input type="button"  onclick="verCarrito(this.id)" value="A&#241;adir al carrito de compras" id="anadir4"</div>
 
-        <div id="miniContenedor2"><img src="Image/moto.jpg"></br><h2>5'000.000</h2></br>
-          <p>Comercializadora Carri</p></br>
-          <input type="button"  value="A&#241;adir al carrito de compras" id="añadir"</div>
+          <div id="miniContenedorD"><img src="Image/martillo.jpg"></br><h2>$40000</h2></br>
+            <p>Martillo industrial</p></br>
+          <input type="button"  onclick="verCarrito(this.id)" value="A&#241;adir al carrito de compras" id="anadir5"</div>
 
-          <div id="miniContenedor2"><img src="Image/xbox.jpg"></br><h2>400000</h2></br>
-            <p>Comercializadora Carri</p></br>
-            <input type="button"  value="A&#241;adir al carrito de compras" id="añadir"</div>
+          <div id="miniContenedorE"><img src="Image/mueble.jpg"></br><h2>$220000</h2></br>
+            <p>Tocador Pieza</p></br>
+          <input type="button"  onclick="verCarrito(this.id)" value="A&#241;adir al carrito de compras" id="anadir6"</div>
 
 
     </form>

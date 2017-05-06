@@ -1,0 +1,185 @@
+#contenedor{
+  }
+
+  body>div:nth-child(1) {
+    display: block;
+  }
+
+  body>div:nth-child(1) div {
+    /*display: inline-block;*/
+   }
+
+
+
+
+#buscar{
+  margin-left: 750px;
+  margin-top: -110px;
+  border: 1px solid #DBE1EB;
+  font-size: 18px;
+  font-family: Arial, Verdana;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  background: #FFFFFF;
+  background: linear-gradient(left, #FFFFFF, #F7F9FA);
+  background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
+  background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
+  background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
+  color: #2E3133;
+}
+
+#buscarCategoria{
+  margin-left: 450px;
+  margin-top: -110px;
+  border: 1px solid #DBE1EB;
+  font-size: 18px;
+  font-family: Arial, Verdana;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  background: #FFFFFF;
+  background: linear-gradient(left, #FFFFFF, #F7F9FA);
+  background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
+  background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
+  background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
+  color: #2E3133;
+
+}
+
+#carrito{
+ margin-left: 1125;
+ margin-top: -200px;
+
+  border: 1px solid #DBE1EB;
+  font-size: 18px;
+  font-family: Arial, Verdana;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  background: #FFFFFF;
+  background: linear-gradient(left, #FFFFFF, #F7F9FA);
+  background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
+  background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
+  background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
+  color: blue;
+}
+
+#buscarProductos{
+border: 1px solid #DBE1EB;
+font-size: 18px;
+font-family: Arial, Verdana;
+padding-left: 7px;
+padding-right: 7px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-radius: 4px;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+-o-border-radius: 4px;
+background: #FFFFFF;
+background: linear-gradient(left, #FFFFFF, #F7F9FA);
+background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
+background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
+background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
+color: #2E3133;
+margin-left: 30px;
+margin-top: 20;
+}
+
+#logo{
+
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+#miniContenedor{
+  margin-left: 30px;
+
+  width: 300px;
+  height: 450px;
+  border: 1px solid #87CEEB;
+  font-size: 18px;
+  font-family: Arial, Verdana;
+  text-align: center;
+
+
+}
+
+#miniContenedor1{
+  margin-top: -400px;
+  margin-left: 350px;
+  width: 300px;
+  height: 450px;
+  border: 1px solid #87CEEB;
+  font-size: 18px;
+  font-family: Arial, Verdana;
+  text-align: center;
+}
+
+#miniContenedorB{
+  margin-top: -375px;
+  margin-left: 340px;
+  width: 300px;
+  height: 450px;
+  border: 1px solid #87CEEB;
+  font-size: 18px;
+  font-family: Arial, Verdana;
+  text-align: center;
+}
+
+#miniContenedorC{
+  margin-left: -692px;
+  border: 1px solid #87CEEB;
+  margin-top: 110px;
+  width: 300px;
+  height: 450px;
+
+}
+
+#miniContenedorD
+
+#titulo{
+  margin-top: 20;
+  margin-left: 30;
+  width: 600px;
+  height: 50px;
+}
+
+#h2{
+  font-size: 5em;
+}
+
+#añadir{
+  border: 5px solid #DBE1EB;
+  font-size: 18px;
+  font-family: Arial, Verdana;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  background: #87CEEB;
+  border-color:aqua;
+
+  color: blue;
+
+}
