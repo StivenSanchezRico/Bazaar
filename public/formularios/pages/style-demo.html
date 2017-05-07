@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PhotoFolio | Style Demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
+</head>
+<body id="top">
+  <div class="wrapper col1">
+    <div id="header" class="clear">
+      <div class="fl_left">
+        <h1><a href="../index.html">Bazaar</a></h1>
+        <p>comenta</p>
+      </div>
+      <div class="fl_right"><a href="#"><img src="../images/demo/logoBazar.png" alt="" /></a></div>
+    </div>
+  </div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col1">
+  <div id="topbar" class="clear">
+    <ul id="topnav">
+      <li class="active"><a href="../index.html">Perfil</a></li>
+      <li><a href="style-demo.html">Cometarios y sugerencias</a></li>
+      <li><a href="full-width.html">Full Width</a></li>
+      <li><a href="portfolio.html">Categorias</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li  class="last"><a href="#">Opciones</a>
+        <ul>
+          <li><a href="#">Agregar Producto</a></li>
+          <li><a href="#">Configuraciones</a></li>
+          <li><a href="../iniciarSesion.html">Salir</a></li>
+        </ul>
+      </li>
+    </ul>
+    <form action="#" method="post" id="search">
+      <fieldset>
+        <legend>Site Search</legend>
+        <input type="text" value="Busca en nuestro sitio web&hellip;" onfocus="this.value=(this.value=='Busca en nuestro sitio web&hellip;')? '' : this.value ;" />
+        <input type="image" id="go" src="../layout/images/search.gif" alt="Search" />
+      </fieldset>
+    </form>
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col2">
+  <div id="container" class="clear">
+    <!-- ####################################################################################################### -->
+    <div id="content">
+      <h1>Comentarios y sugerencias!</h1>
+      <p>En esta parte de nuestra web podras realizar tus comentarios y sugerencias, ademas podras leer los que otras personas
+       ya hicieron anteriormente.</p>
+      <div id="comments">
+        <h2>Comentarios</h2>
+        <ul class="commentlist">
+          <li class="comment_odd">
+            <div class="author"><img class="avatar" src="../images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="#">Stiven</a></span> <span class="wrote"></span></div>
+            <div class="submitdate"><a href="#">Mayo 4, 2017 a las 4:49 pm</a></div>
+            <p>Me gusto mucho la pagina sobre todo tener la oportunida de utilizarla correctamente</p>
+          </li>
+          <li class="comment_even">
+            <div class="author"><img class="avatar" src="../images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="#">Santiago</a></span> <span class="wrote"></span></div>
+            <div class="submitdate"><a href="#">Mayo 5, 2017 a las 7:00 am</a></div>
+            <p>Una pagina realmente intuitiva</p>
+          </li>
+          <li class="comment_odd">
+            <div class="author"><img class="avatar" src="../images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="#">Andres</a></span> <span class="wrote"></span></div>
+            <div class="submitdate"><a href="#">Mayo 6, 2017 a las 7:30 pm</a></div>
+            <p>No veo la hora de entregar la pagina web funcionando</p>
+          </li>
+        </ul>
+      </div>
+      <h2>Escriba un Comentario</h2>
+      <div id="respond">
+        <form action="#" method="post">
+          <p>
+            <input type="text" name="name" id="name" value="" size="22" />
+            <label for="name"><small>Nombre(Requerido)</small></label>
+          </p>
+          <p>
+            <input type="email" name="email" id="email" value="" size="22" />
+            <label for="email"><small>Correo (Requerido)</small></label>
+          </p>
+          <p>
+            <textarea name="comment" id="comment" cols="100%" rows="10"></textarea>
+            <label for="comment" style="display:none;"><small>Comentario (Requerido)</small></label>
+          </p>
+          <p>
+            <input name="submit" type="submit" id="submit" value="Submit Form" />
+            &nbsp;
+            <input name="reset" type="reset" id="reset" tabindex="5" value="Reset Form" />
+          </p>
+        </form>
+      </div>
+    </div>
+    <!-- ####################################################################################################### -->
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper">
+  <div id="footer" class="clear">
+    <div class="footbox">
+      <h2>Un poco sobre nosotros</h2>
+      <p>Bazaar nacio de la idea de crear una pagina web para un circulo social privado en la cual se pudiera
+      interactuar entre compradores y vendedores.</p>
+    </div>
+    <div class="footbox">
+      <h2>Nuestras categorias</h2>
+      <ul>
+        <li><a href="#">Ropa</a></li>
+        <li><a href="#">Deportes</a></li>
+        <li><a href="#">Mujeres</a></li>
+        <li><a href="#">Hombres</a></li>
+        <li><a href="#">Tecnologia</a></li>
+        <li><a href="#">Accesorios</a></li>
+      </ul>
+    </div>
+    <div class="footbox">
+      <ul>
+        <li><a href="#">Niños-Niñas-Bebes</a></li>
+        <li><a href="#">Jugueteria</a></li>
+        <li><a href="#">Moda-Belleza</a></li>
+        <li><a href="#">Muebles</a></li>
+        <li><a href="#">Seguridad</a></li>
+        <li><a href="#">Maquinaria-Herramientas</a></li>
+      </ul>
+    </div>
+    <div class="footbox last">
+      <h2>Nuestras redes</h2>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Google+</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+      <h2>Nuestros Contactos</h2>
+      <ul>
+        <li><strong class="title">Tel:</strong><br />
+          2376543</li>
+        <li><strong class="title">Email:</strong><br />
+          <a href="#">Bazaar@hotmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper">
+  <div id="copyright" class="clear">
+    <p class="fl_left">Copyright &copy; 2017 - All Rights Reserved - <a href="#">Bazaar</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+  </div>
+</div>
+</body>
+</html>

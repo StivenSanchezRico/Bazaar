@@ -9,6 +9,11 @@ var venticas = ["."];
 
 fs.readFile("Usuario.json",cargarUsuarios);
 
+<<<<<<< HEAD
+=======
+var lecturaDatos = fs.readFile("usuario.json",cargarUsuarios);
+//var lecturaVentas = fs.readFile("ventas.json",cargarVentas);
+>>>>>>> 36b2d0670d094ee00eb49834c2696bc716fd4a17
 //Funcion que permite observar que usuarios se
 // encuentran en la base de datos
 function cargarUsuarios(error,data){
@@ -181,7 +186,7 @@ function login(request,response){
 
         var resp = {};
         resp.estado = 'OK';
-        resp.url = '/profileR.html';
+        resp.url = '/index.html';
         //Enviar cookie al navegador
         response.writeHead(200,{
           'Set-cookie':  'the-cookie'

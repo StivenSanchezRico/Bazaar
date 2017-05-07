@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC>
+<html>
+<head>
+<title>Bazaar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="layout/styles/layout.css" type="text/css" />
+<script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
+<!-- tabs -->
+<script type="text/javascript" src="layout/scripts/jquery.ui.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $("#tabcontainer").tabs({
+        event: "click"
+    });
+});
+</script>
+<!-- / tabs -->
+<script type="text/javascript" src="layout/scripts/jquery-photostack.js"></script>
+<!-- coinslider -->
+<script type="text/javascript" src="layout/scripts/jquery-coin-slider.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#portfolioslider').coinslider({
+        width: 480,
+        height: 280,
+        navigation: false,
+        links: false,
+        hoverPause: true
+    });
+});
+</script>
+<!-- / coinslider -->
+</head>
+<body id="top">
+<div class="wrapper col1">
+  <div id="header" class="clear">
+    <div class="fl_left">
+      <h1><a href="index.html">Bazaar</a></h1>
+      <p>Bienvenido este es tu perfil personal</p>
+    </div>
+    <div class="fl_right"><a href="#"><img src="images/demo/logoBazar.png" alt="" /></a></div>
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col1">
+  <div id="topbar" class="clear">
+    <ul id="topnav">
+      <li class="active"><a href="index.html">Perfil</a></li>
+      <li><a href="pages/style-demo.html">Cometarios y sugerencias</a></li>
+      <li><a href="pages/full-width.html">Full Width</a></li>
+      <li><a href="pages/portfolio.html">Categorias</a></li>
+      <li><a href="pages/gallery.html">Gallery</a></li>
+      <li  class="last"><a href="#">Opciones</a>
+        <ul>
+          <li><a href="#">Agregar Producto</a></li>
+          <li><a href="#">Configuraciones</a></li>
+          <li><a href="iniciarSesion.html">Salir</a></li>
+        </ul>
+      </li>
+    </ul>
+    <form action="#" method="post" id="search">
+      <fieldset>
+        <legend>Site Search</legend>
+        <input type="text" value="Busca en nuestro sitio web&hellip;" onfocus="this.value=(this.value=='Busca en nuestro sitio web&hellip;')? '' : this.value ;" />
+        <input type="image" id="go" src="layout/images/search.gif" alt="Search" />
+      </fieldset>
+    </form>
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col1">
+  <div id="featured_slide">
+    <!-- ####################################################################################################### -->
+    <div id="slider">
+      <ul id="categories">
+        <li class="category">
+          <h2 class="titulo">Computador Intel</h2>
+          <a href="#"><img src="images/demo/computador.gif" alt="" /></a>
+          <p class="precio" ><strong>5000000</strong></p>
+          <p class="descripcion">Computador casi como nuevo</p>
+          <p class="readmore"><a href="#">configurar &raquo;</a></p>
+        </li>
+        <li class="category">
+          <h2 class="titulo">Nissan Frontier</h2>
+          <a href="#"><img src="images/demo/carro.jpg" alt="" /></a>
+          <p class="precio"><strong>40000000</strong></p>
+          <p class="descripcion">Carro ultimo modelo a un precio muy favorable</p>
+          <p class="readmore"><a href="#">configurar &raquo;</a></p>
+        </li>
+        <li class="category">
+          <h2 class="titulo">Renault Sandero</h2>
+          <a href="#"><img src="images/demo/carro2.jpg" alt="" /></a>
+          <p class="precio"><strong>7500000</strong></p>
+          <p class="descripcion">Auto ultimo modelo a un precio muy favorable</p>
+          <p class="readmore"><a href="#">configurar &raquo;</a></p>
+        </li>
+        <li class="category">
+          <h2 class="titulo">Inmueble</h2>
+          <a href="#"><img src="images/demo/casa.jpg" alt="" /></a>
+          <p class="precio"><strong>30000000</strong></p>
+          <p class="descripcion">se vende inmueble a muy bajo costo, motivo de venta viaje</p>
+          <p class="readmore"><a href="#">configurar &raquo;</a></p>
+        </li>
+        <li class="category">
+          <h2 class="titulo">Xbox 360</h2>
+          <a href="#"><img src="images/demo/xbox.jpg" alt="" /></a>
+          <p class="precio"><strong>700000</strong></p>
+          <p class="descripcion">Se vende consola 360 sin parches con juegos originales</p>
+          <p class="readmore"><a href="#">configurar &raquo;</a></p>
+        </li>
+        <li class="category">
+          <h2 class="titulo">Moto 4 tiempos</h2>
+          <a href="#"><img src="images/demo/moto.jpg" alt="" /></a>
+          <p class="precio"><strong>6000000</strong></p>
+          <p class="descripcion">Se vende moto cuatro tiempos a un muy buen precio</p>
+          <p class="readmore"><a href="#">configurar &raquo;</a></p>
+        </li>
+        <li class="category">
+          <h2 class="titulo">Mesa de comedor</h2>
+          <a href="#"><img src="images/demo/comedor.jpg" alt="" /></a>
+          <p class="titulo"><strong>3200000</strong></p>
+          <p class="descripcion">Se vende mesa de comedor en vidrio templado</p>
+          <p class="readmore"><a href="#">configurar &raquo;</a></p>
+        </li>
+        <li class="category">
+          <h2 class="titulo">Cevrolet 2017</h2>
+          <a href="#"><img src="images/demo/carro5.jpg" alt="" /></a>
+          <p class="precio"><strong>60000000</strong></p>
+          <p class="descripcion">Se vende carro ultimo modelo</p>
+          <p class="readmore"><a href="#">configurar &raquo;</a></p>
+        </li>
+      </ul>
+      <a class="prev disabled"></a> <a class="next disabled"></a>
+      <div style="clear:both"></div>
+    </div>
+    <!-- ####################################################################################################### -->
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper col2">
+  <div id="container" class="clear">
+    <!-- ####################################################################################################### -->
+    <div id="tabcontainer">
+      <ul id="tabnav">
+        <li><a href="#tabs-1">Nuestros Servicios</a></li>
+        <li><a href="#tabs-4">Nuestra Historia</a></li>
+      </ul>
+      <div id="tabs-1" class="tabcontainer">
+        <div id="hpage_services" class="clear">
+          <div class="block"><strong>Venta</strong>
+            <p>Para vender el producto que desees en nuestra pagina web solo debes elegir en el boton opciones,
+            la opcion agregar nuevo producto alli te aparecera los campos que debes deligenciar y podras elegir una foto
+            que represente al producto.</p>
+          </div>
+          <div class="block"><strong>Compra</strong>
+            <p>Para poder observar los diferentes productos que estan a la venta solo debe dirigirse a la pagina categorias donde estan las diferentes
+            categorias con sus respectivos productos.</p>
+          </div>
+        </div>
+      </div>
+      <!-- ########### -->
+      <div id="tabs-4" class="tabcontainer">
+        <h2>Como comenzo</h2>
+        <p>Bazaar surgio como un trabajo de universidad, en el cual se debia realizar una pagina web la cual permitiera
+           la compra y venta de diversos productos, ademas tambien se debia permitir realizar muchas cosas mas.</p>
+        </div>
+      <!-- ########### -->
+    </div>
+    <!-- ####################################################################################################### -->
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper">
+  <div id="footer" class="clear">
+    <div class="footbox">
+      <h2>Un poco sobre nosotros</h2>
+      <p>Bazaar nacio de la idea de crear una pagina web para un circulo social privado en la cual se pudiera
+      interactuar entre compradores y vendedores.</p>
+    </div>
+    <div class="footbox">
+      <h2>Nuestras categorias</h2>
+      <ul>
+        <li><a href="#">Ropa</a></li>
+        <li><a href="#">Deportes</a></li>
+        <li><a href="#">Mujeres</a></li>
+        <li><a href="#">Hombres</a></li>
+        <li><a href="#">Tecnologia</a></li>
+        <li><a href="#">Accesorios</a></li>
+      </ul>
+    </div>
+    <div class="footbox">
+      <ul>
+        <li><a href="#">Niños-Niñas-Bebes</a></li>
+        <li><a href="#">Jugueteria</a></li>
+        <li><a href="#">Moda-Belleza</a></li>
+        <li><a href="#">Muebles</a></li>
+        <li><a href="#">Seguridad</a></li>
+        <li><a href="#">Maquinaria-Herramientas</a></li>
+      </ul>
+    </div>
+    <div class="footbox last">
+      <h2>Nuestras redes</h2>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Google+</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+      <h2>Nuestros Contactos</h2>
+      <ul>
+        <li><strong class="title">Tel:</strong><br />
+          2376543</li>
+        <li><strong class="title">Email:</strong><br />
+          <a href="#">Bazaar@hotmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- ####################################################################################################### -->
+<div class="wrapper">
+  <div id="copyright" class="clear">
+    <p class="fl_left">Copyright &copy; 2017 - All Rights Reserved - <a href="#">Bazaar</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+  </div>
+</div>
+</body>
+</html>
