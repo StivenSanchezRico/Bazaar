@@ -5,10 +5,10 @@ var hoy = new Date();
 
 //Vector que va a almacenar a los usurios registrados
 var usuarios = [];
-var venticas = [];
+var venticas = ["."];
 
-var lecturaDatos = fs.readFile("ventas.json",cargarUsuarios);
-//var lecturaVentas = fs.readFile("ventas.json",cargarVentas);
+fs.readFile("Usuario.json",cargarUsuarios);
+
 //Funcion que permite observar que usuarios se
 // encuentran en la base de datos
 function cargarUsuarios(error,data){
@@ -21,7 +21,7 @@ function cargarUsuarios(error,data){
         response.end(error.toString());
     }
 }
-
+fs.readFile("ventas.json",cargarVentas);
 function cargarVentas(error,data){
     if(error==null){
         venticas = JSON.parse(data); //Destr
@@ -60,11 +60,26 @@ function atenderServidor(request, response){
   else if(request.url=='/login'){
         login(request,response);
   }
-  if(request.url=='/ventas'){
+//Guarda los posibles productos a vender.
+  else if(request.url=='/ventas'){
     guardarVentas(request,response);
 
   }
 
+}
+//Guardar las ventas en el momento
+function guardarVentas(request,response){
+  //Programar el callBack
+  request.on("data",recibir);
+  function recibir(data){
+    console.log(data.toString());
+    var ven = JSON.parse(data.toString());
+    //Agregar al vector
+    venticas.push(ven);
+    //console.log(ven);
+    fs.writeFile('ventas.json',JSON.stringify(ven),null);
+    response.end("Guardando venta");
+  }
 }
 
 function retornarEncicla(request,response){
@@ -187,26 +202,4 @@ function login(request,response){
 
   }
 
-}
-
-function guardarVentas(request,response){
-  request.on("data",recibir);
-  function recibir(data){
-    var ven = JSON.parse(data.toString());
-    usuarios.push(ven);
-
-    console.log(venticas);
-    //console.log(venta);
-    fs.writeFile('ventas.json',JSON.stringify(usuarios),null);
-  }
-}
-
-function recibir(data){
-    console.log(data.toString());
-    var usr = JSON.parse(data.toString());
-    //Agregar al vector
-    venticas.push(usr);
-    response.end("Ya recibimos el usurio");
-    console.log(usuarios);
-    fs.writeFile('personas.json',JSON.stringify(usuarios),null);
 }
