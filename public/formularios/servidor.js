@@ -7,7 +7,7 @@ var hoy = new Date();
 var usuarios = [];
 var venticas = [];
 
-var lecturaDatos = fs.readFile("ventas.json",cargarUsuarios);
+var lecturaDatos = fs.readFile("usuario.json",cargarUsuarios);
 //var lecturaVentas = fs.readFile("ventas.json",cargarVentas);
 //Funcion que permite observar que usuarios se
 // encuentran en la base de datos
@@ -166,7 +166,7 @@ function login(request,response){
 
         var resp = {};
         resp.estado = 'OK';
-        resp.url = '/profileR.html';
+        resp.url = '/index.html';
         //Enviar cookie al navegador
         response.writeHead(200,{
           'Set-cookie':  'the-cookie'
