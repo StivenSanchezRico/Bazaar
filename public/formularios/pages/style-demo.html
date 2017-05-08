@@ -1,9 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>PhotoFolio | Style Demo</title>
+<title>Bazaar | comentarios</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
+<script type="text/javascript">
+function salir(){
+    var request = new XMLHttpRequest();
+  request.open("POST","/salir",false);
+  request.send();
+  window.location.href = '/HomeS.html';
+}
+function guardarCampos(){
+  var comentario = {};
+  comentario.name = document.getElementById("name").value;
+  comentario.email = document.getElementById('email').value;
+  comentario.comment = document.getElementById('comment').value;
+  return comentario;
+}
+function comentario(){
+  var comentario = guardarCampos();
+
+  var serializado = "";
+  //Serializar el objeto como una cadena de texto JSON
+  serializado = JSON.stringify(comentario);
+  window.alert(serializado);
+  //Crear un objeto para hacer Peticiones HTTP
+  var request = new XMLHttpRequest();
+  //Abrir una peticion HTTP POST a la url deseado y no asincronico
+  request.open("POST","/comentar",false);
+  //Ejecuta la peticion HTTP
+  request.send(serializado);
+
+  var rta = xhr.responseText;
+  //
+    window.alert(rta);
+  return JSON.parse(rta);
+  mostrarDatos()
+}
+function mostrarDatos()
+{
+var datos = comentario();
+var html= "";
+
+for(var i = 0; i < datos.length; i++)
+{
+  var paso = datos[i];
+  html = html +"<li><div><span><a"+paso.name+"</a></span></div><p>"+paso.email+"</p></li>";
+
+document.getElementById("comentarios").innerHTML = html;
+}
+}
+</script>
 </head>
 <body id="top">
   <div class="wrapper col1">
@@ -28,7 +76,7 @@
         <ul>
           <li><a href="#">Agregar Producto</a></li>
           <li><a href="#">Configuraciones</a></li>
-          <li><a href="../iniciarSesion.html">Salir</a></li>
+          <li><a href="#" onclick="salir()">Salir</a></li>
         </ul>
       </li>
     </ul>
@@ -51,20 +99,17 @@
        ya hicieron anteriormente.</p>
       <div id="comments">
         <h2>Comentarios</h2>
-        <ul class="commentlist">
+        <ul class="commentlist" id="comentarios">
           <li class="comment_odd">
             <div class="author"><img class="avatar" src="../images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="#">Stiven</a></span> <span class="wrote"></span></div>
-            <div class="submitdate"><a href="#">Mayo 4, 2017 a las 4:49 pm</a></div>
             <p>Me gusto mucho la pagina sobre todo tener la oportunida de utilizarla correctamente</p>
           </li>
           <li class="comment_even">
             <div class="author"><img class="avatar" src="../images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="#">Santiago</a></span> <span class="wrote"></span></div>
-            <div class="submitdate"><a href="#">Mayo 5, 2017 a las 7:00 am</a></div>
             <p>Una pagina realmente intuitiva</p>
           </li>
           <li class="comment_odd">
             <div class="author"><img class="avatar" src="../images/demo/avatar.gif" width="32" height="32" alt="" /><span class="name"><a href="#">Andres</a></span> <span class="wrote"></span></div>
-            <div class="submitdate"><a href="#">Mayo 6, 2017 a las 7:30 pm</a></div>
             <p>No veo la hora de entregar la pagina web funcionando</p>
           </li>
         </ul>
@@ -85,9 +130,9 @@
             <label for="comment" style="display:none;"><small>Comentario (Requerido)</small></label>
           </p>
           <p>
-            <input name="submit" type="submit" id="submit" value="Submit Form" />
+            <input name="submit" type="submit" id="submit" value="Comentar" onclick="comentar()"/>
             &nbsp;
-            <input name="reset" type="reset" id="reset" tabindex="5" value="Reset Form" />
+            <input name="reset" type="reset" id="reset" tabindex="5" value="Borrar" />
           </p>
         </form>
       </div>

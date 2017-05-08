@@ -4,6 +4,14 @@
 <title>PhotoFolio | Full Width</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
+<script type="text/javascript">
+function salir(){
+    var request = new XMLHttpRequest();
+  request.open("POST","/salir",false);
+  request.send();
+  window.location.href = '/HomeS.html';
+}
+</script>
 </head>
 <body id="top">
   <div class="wrapper col1">
@@ -28,7 +36,7 @@
         <ul>
           <li><a href="#">Agregar Producto</a></li>
           <li><a href="#">Configuraciones</a></li>
-          <li><a href="../iniciarSesion.html">Salir</a></li>
+          <li><a href="#" onclick="salir()">Salir</a></li>
         </ul>
       </li>
     </ul>
