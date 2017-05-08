@@ -5,27 +5,25 @@ var hoy = new Date();
 
 //Vector que va a almacenar a los usurios registrados
 var usuarios = [];
-var venticas = ["."];
+var venticas = [];
+var comentarios = [];
 
 fs.readFile("Usuario.json",cargarUsuarios);
-
-<<<<<<< HEAD
-=======
 var lecturaDatos = fs.readFile("usuario.json",cargarUsuarios);
 //var lecturaVentas = fs.readFile("ventas.json",cargarVentas);
->>>>>>> 36b2d0670d094ee00eb49834c2696bc716fd4a17
 //Funcion que permite observar que usuarios se
 // encuentran en la base de datos
 function cargarUsuarios(error,data){
     if(error==null){
         usuarios = JSON.parse(data); //Destr
-        console.log("Los usurios registrados son");
+        console.log("Los usuarios registrados son");
         console.log(usuarios);
     }else{
         console.log(error);
         response.end(error.toString());
     }
 }
+
 fs.readFile("ventas.json",cargarVentas);
 function cargarVentas(error,data){
     if(error==null){
@@ -36,6 +34,18 @@ function cargarVentas(error,data){
         console.log(error);
         response.end(error.toString());
     }
+}
+fs.readFile("comments.json",cargarComentarios);
+function cargarComentarios(error,data){
+if (error == null) {
+	comentarios = JSON.parse(data);
+
+	console.log("los comentarios son: ");
+	console.log(comentarios);
+}else{
+	console.log(error);
+	response.end(error.toString());
+}
 }
 //Crear una instacncia del servidor HTTP
 var server = http.createServer(atenderServidor);
@@ -65,26 +75,43 @@ function atenderServidor(request, response){
   else if(request.url=='/login'){
         login(request,response);
   }
-<<<<<<< HEAD
   else if(request.url=='/salir'){
 		borrarCookie( request , response );
 	}
-=======
 //Guarda los posibles productos a vender.
->>>>>>> 87af061d9e48d5cd392bc9e045488006d3c81503
   else if(request.url=='/ventas'){
     guardarVentas(request,response);
   }
-
+  else if(request.url=='/comentar'){
+			guardarComentario(request,response);
+	}
 }
-<<<<<<< HEAD
+function guardarComentario(request,response){
+var body = "";
+//Programa el callback
+	request.on("data",recibir);
+//callback que recibe el cuerpo del POST
+	function recibir(data) {
+		console.log(data.toString());
+		var comment = JSON.parse( data.toString() );
+				//Agrega al vector
+				comentarios.push( comment );
+				console.log( comment );
+				fs.writeFile('comments.json',JSON.stringify(comentarios),null);
+        for(var i=0;i<comentarios.length;i++){
+          body += comentarios[i];
+        }
+        response.end(body);
+	}
+}
 function borrarCookie( request , response ){
   var resp = {};
   resp.url = '/HomeS.html';
   response.writeHead(200, {
   'Set-Cookie': 'usuario=' + ''});
   response.end('cookie borrada');
-=======
+}
+
 //Guardar las ventas en el momento
 function guardarVentas(request,response){
   //Programar el callBack
@@ -93,12 +120,11 @@ function guardarVentas(request,response){
     console.log(data.toString());
     var ven = JSON.parse(data.toString());
     //Agregar al vector
-    venticas.push(ven);
+    venticas.push( ven );
     //console.log(ven);
     fs.writeFile('ventas.json',JSON.stringify(ven),null);
     response.end("Guardando venta");
   }
->>>>>>> 87af061d9e48d5cd392bc9e045488006d3c81503
 }
 
 function retornarEncicla(request,response){
@@ -222,7 +248,6 @@ function login(request,response){
   }
 
 }
-<<<<<<< HEAD
 
 function guardarVentas(request,response){
   request.on("data",recibir);
@@ -258,5 +283,3 @@ function parseCookies (request) {
 
   return list;
 }
-=======
->>>>>>> 87af061d9e48d5cd392bc9e045488006d3c81503
