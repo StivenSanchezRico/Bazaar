@@ -4,6 +4,14 @@
 <title>PhotoFolio | Style Demo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
+<script type="text/javascript">
+function salir(){
+    var request = new XMLHttpRequest();
+  request.open("POST","/salir",false);
+  request.send();
+  window.location.href = '/HomeS.html';
+}
+</script>
 </head>
 <body id="top">
   <div class="wrapper col1">
@@ -28,7 +36,7 @@
         <ul>
           <li><a href="#">Agregar Producto</a></li>
           <li><a href="#">Configuraciones</a></li>
-          <li><a href="../iniciarSesion.html">Salir</a></li>
+          <li><a href="#" onclick="salir()">Salir</a></li>
         </ul>
       </li>
     </ul>
@@ -85,9 +93,9 @@
             <label for="comment" style="display:none;"><small>Comentario (Requerido)</small></label>
           </p>
           <p>
-            <input name="submit" type="submit" id="submit" value="Submit Form" />
+            <input name="submit" type="submit" id="submit" value="Comentar" />
             &nbsp;
-            <input name="reset" type="reset" id="reset" tabindex="5" value="Reset Form" />
+            <input name="reset" type="reset" id="reset" tabindex="5" value="Borrar" />
           </p>
         </form>
       </div>

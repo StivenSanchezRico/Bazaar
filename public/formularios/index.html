@@ -28,6 +28,12 @@ $(document).ready(function () {
         hoverPause: true
     });
 });
+function salir(){
+    var request = new XMLHttpRequest();
+  request.open("POST","/salir",false);
+  request.send();
+  window.location.href = '/HomeS.html';
+}
 </script>
 <!-- / coinslider -->
 </head>
@@ -54,7 +60,7 @@ $(document).ready(function () {
         <ul>
           <li><a href="#">Agregar Producto</a></li>
           <li><a href="#">Configuraciones</a></li>
-          <li><a href="iniciarSesion.html">Salir</a></li>
+          <li><a href="#" onclick="salir()">Salir</a></li>
         </ul>
       </li>
     </ul>

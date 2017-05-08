@@ -1,14 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!--
-Template Name: PhotoFolio
-Author: <a href="http://www.os-templates.com/">OS Templates</a>
-Author URI: http://www.os-templates.com/
-Licence: Free to use under our free template licence terms
-Licence URI: http://www.os-templates.com/template-terms
--->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+
+<html>
 <head>
-<title>PhotoFolio | Gallery</title>
+<title>Bazaar | Gallery</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
 <script type="text/javascript" src="../layout/scripts/jquery.min.js"></script>
@@ -33,6 +27,12 @@ $(document).ready(function() {
         social_tools: false
     });
 });
+function salir(){
+    var request = new XMLHttpRequest();
+  request.open("POST","/salir",false);
+  request.send();
+  window.location.href = '/HomeS.html';
+}
 </script>
 <!-- / prettyPhoto -->
 </head>
@@ -59,7 +59,7 @@ $(document).ready(function() {
         <ul>
           <li><a href="#">Agregar Producto</a></li>
           <li><a href="#">Configuraciones</a></li>
-          <li><a href="../iniciarSesion.html">Salir</a></li>
+          <li><a href="#" onclick="salir()">Salir</a></li>
         </ul>
       </li>
     </ul>

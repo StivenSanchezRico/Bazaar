@@ -60,11 +60,20 @@ function atenderServidor(request, response){
   else if(request.url=='/login'){
         login(request,response);
   }
-  if(request.url=='/ventas'){
+  else if(request.url=='/salir'){
+		borrarCookie( request , response );
+	}
+  else if(request.url=='/ventas'){
     guardarVentas(request,response);
-
   }
 
+}
+function borrarCookie( request , response ){
+  var resp = {};
+  resp.url = '/HomeS.html';
+  response.writeHead(200, {
+  'Set-Cookie': 'usuario=' + ''});
+  response.end('cookie borrada');
 }
 
 function retornarEncicla(request,response){
@@ -169,7 +178,7 @@ function login(request,response){
         resp.url = '/index.html';
         //Enviar cookie al navegador
         response.writeHead(200,{
-          'Set-cookie':  'the-cookie'
+          'Set-cookie':  'usuario: '+usr.correo
         });
         //Serializar el objeto y enviar de vuelta al navegador
         response.end(JSON.stringify(resp));
@@ -206,7 +215,20 @@ function recibir(data){
     var usr = JSON.parse(data.toString());
     //Agregar al vector
     venticas.push(usr);
-    response.end("Ya recibimos el usurio");
+    response.end("Ya recibimos el usuario");
     console.log(usuarios);
     fs.writeFile('personas.json',JSON.stringify(usuarios),null);
+}
+
+//Guarda en una lista las cookies que ha recibido.
+function parseCookies (request) {
+  var list = {},
+  rc = request.headers.cookie;
+
+  rc && rc.split(';').forEach(function( cookie ) {
+  var parts = cookie.split('=');
+  list[parts.shift().trim()] = decodeURI(parts.join('='));
+  });
+
+  return list;
 }
