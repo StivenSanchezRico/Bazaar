@@ -5,10 +5,15 @@ var hoy = new Date();
 
 //Vector que va a almacenar a los usurios registrados
 var usuarios = [];
-var venticas = [];
+var venticas = ["."];
 
+fs.readFile("Usuario.json",cargarUsuarios);
+
+<<<<<<< HEAD
+=======
 var lecturaDatos = fs.readFile("usuario.json",cargarUsuarios);
 //var lecturaVentas = fs.readFile("ventas.json",cargarVentas);
+>>>>>>> 36b2d0670d094ee00eb49834c2696bc716fd4a17
 //Funcion que permite observar que usuarios se
 // encuentran en la base de datos
 function cargarUsuarios(error,data){
@@ -21,7 +26,7 @@ function cargarUsuarios(error,data){
         response.end(error.toString());
     }
 }
-
+fs.readFile("ventas.json",cargarVentas);
 function cargarVentas(error,data){
     if(error==null){
         venticas = JSON.parse(data); //Destr
@@ -60,20 +65,40 @@ function atenderServidor(request, response){
   else if(request.url=='/login'){
         login(request,response);
   }
+<<<<<<< HEAD
   else if(request.url=='/salir'){
 		borrarCookie( request , response );
 	}
+=======
+//Guarda los posibles productos a vender.
+>>>>>>> 87af061d9e48d5cd392bc9e045488006d3c81503
   else if(request.url=='/ventas'){
     guardarVentas(request,response);
   }
 
 }
+<<<<<<< HEAD
 function borrarCookie( request , response ){
   var resp = {};
   resp.url = '/HomeS.html';
   response.writeHead(200, {
   'Set-Cookie': 'usuario=' + ''});
   response.end('cookie borrada');
+=======
+//Guardar las ventas en el momento
+function guardarVentas(request,response){
+  //Programar el callBack
+  request.on("data",recibir);
+  function recibir(data){
+    console.log(data.toString());
+    var ven = JSON.parse(data.toString());
+    //Agregar al vector
+    venticas.push(ven);
+    //console.log(ven);
+    fs.writeFile('ventas.json',JSON.stringify(ven),null);
+    response.end("Guardando venta");
+  }
+>>>>>>> 87af061d9e48d5cd392bc9e045488006d3c81503
 }
 
 function retornarEncicla(request,response){
@@ -197,6 +222,7 @@ function login(request,response){
   }
 
 }
+<<<<<<< HEAD
 
 function guardarVentas(request,response){
   request.on("data",recibir);
@@ -232,3 +258,5 @@ function parseCookies (request) {
 
   return list;
 }
+=======
+>>>>>>> 87af061d9e48d5cd392bc9e045488006d3c81503

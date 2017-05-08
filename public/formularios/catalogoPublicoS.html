@@ -268,7 +268,7 @@
     transformar = JSON.stringify(producto);
     window.alert(transformar);
     var request = new XMLHttpRequest();
-    request.open("POST","/ventas");
+    request.open("POST","/ventas",false);
     request.send(transformar);
 
     }
