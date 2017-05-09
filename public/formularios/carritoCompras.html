@@ -29,6 +29,37 @@
       background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
       color: blue;
   }
+
+
+    #terminarCompra{
+
+        margin-top: -43px;
+        margin-left: 400px;
+        border: 1px solid #DBE1EB;
+        font-size: 18px;
+        font-family: Arial, Verdana;
+        padding-left: 7px;
+        padding-right: 7px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -o-border-radius: 4px;
+        background: #FFFFFF;
+        background: linear-gradient(left, #FFFFFF, #F7F9FA);
+        background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
+        background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
+        background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
+        color: blue;
+    }
+
+    h1{
+        font-family: Arial, Verdana;
+        color: blue;
+    }
+
+
 </style>
 
 <script>
@@ -104,7 +135,7 @@
       }
 
 		}
-      html = html + "<tr style=background:blue> <td>"+"TOTAL"+"</td> <td>"+"__"+"</td> <td>"+"__"+"</td>"+"<td>"+total+"</td><tr>";
+      html = html + "<tr style=background:red> <td>"+"TOTAL"+"</td> <td>"+"__"+"</td> <td>"+"__"+"</td>"+"<td>"+total+"</td><tr>";
 
 		document.getElementById("tabla").innerHTML = html;
     console.log("El total es");
@@ -257,6 +288,9 @@
 </table></br></br>
 <div id="comprar" >
 <input type="button" id="FinalizarCompra" value="Realizar Compra" name="compra"/>
+</div>
+<div id="comprar" >
+<input type="button" id="terminarCompra" value="Cancelar Compra" name="compra"/>
 </div>
 </center>
 </form>
