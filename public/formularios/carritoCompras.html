@@ -1,0 +1,264 @@
+<html>
+  <head>
+  <title></title>
+  <script src= "https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <style>
+  #logo{
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+
+  #FinalizarCompra{
+
+
+      border: 1px solid #DBE1EB;
+      font-size: 18px;
+      font-family: Arial, Verdana;
+      padding-left: 7px;
+      padding-right: 7px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 4px;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      -o-border-radius: 4px;
+      background: #FFFFFF;
+      background: linear-gradient(left, #FFFFFF, #F7F9FA);
+      background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
+      background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
+      background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
+      color: blue;
+  }
+</style>
+
+<script>
+
+    ///función que permite traer los datos del archivo json, usando jquery
+    function cargarA(){
+      var datos;
+      $.get("ventas.json",function(data){
+        console.log("Se han cargado los datos" + data);
+        datos = $.parseJSON(data.toString());
+        mostrarDatos1(datos);
+      });
+
+
+    }
+
+    //Obtiene la posición exacta de donde se encuentra actualmete
+    function latitud(){
+        navigator.geolocation.getCurrentPosition(function(position) {
+  console.log(position.coords.latitude, position.coords.longitude);
+});
+    }
+
+    /*function mostrarDatos(datos)
+		{
+      console.log(datos);
+		var html= "";
+
+		for(var comuna = 0; comuna < datos.length; comuna++)
+		{
+			var actual = datos.[comuna];
+
+		for (var estacion = 0; estacion< actual.length; estacion++ )
+			{
+			var paso = actual.items[estacion];
+			posicion = paso;
+			if(paso.bikes==0){
+				html = html + "<tr style=background:red> <td>"+paso.name+"</td> <td>" +paso.bikes+"</td> <td>"+paso.places+"</td></tr>";
+			}
+			else if(paso.places==null){
+				html = html + "<tr style=background:orange> <td>"+paso.name+"</td> <td>" +paso.bikes+"</td> <td>"+paso.places+"</td></tr>";
+			}
+			else
+			html = html + "<tr style=background:color> <td>"+paso.name+"</td> <td>" +paso.bikes+"</td> <td>"+paso.places+"</td></tr>";
+			}
+		}
+
+		document.getElementById("tabla").innerHTML = html;
+  }*/
+
+    function mostrarDatos1(datos)
+		{
+      var total=0;
+      var subtotal=0;
+      //console.log(datos);
+		var html= "";
+
+		for(var comuna = 0; comuna < datos.length; comuna++)
+		{
+			//var actual = datos[comuna];
+			//var paso = actual[estacion];
+			//posicion = paso;
+      console.log(datos[comuna].nombre);
+			if(datos[comuna].nombre=="Martillo Industrial"||datos[comuna].nombre=="Sudadera Adidas"||datos[comuna].nombre=="Chevrolet Spark"){
+        subtotal = datos[comuna].consol * datos[comuna].cantidad;
+				html = html + "<tr style=background:blue> <td>"+datos[comuna].nombre+"</td> <td>" +datos[comuna].consol+"</td> <td>"+datos[comuna].cantidad+"</td>"+"<td>"+subtotal+"</td></tr>";
+        total+=subtotal;
+			}
+      if(datos[comuna].nombre=="Pulsar NS 200"||datos[comuna].nombre=="Portatil ASUS"||datos[comuna].nombre=="Tocador Pieza"){
+        subtotal = datos[comuna].consol * datos[comuna].cantidad;
+        html = html + "<tr style=background:blue> <td>"+datos[comuna].nombre+"</td> <td>" +datos[comuna].consol+"</td> <td>"+datos[comuna].cantidad+"</td>"+"<td>"+subtotal+"</td><tr>";
+        total+=subtotal;
+      }
+
+		}
+      html = html + "<tr style=background:blue> <td>"+"TOTAL"+"</td> <td>"+"__"+"</td> <td>"+"__"+"</td>"+"<td>"+total+"</td><tr>";
+
+		document.getElementById("tabla").innerHTML = html;
+    console.log("El total es");
+    console.log(total);
+		}
+
+    function hacerPago(){
+
+    }
+
+
+
+</script>
+
+  </head>
+
+  <body onload="cargarA()">
+    <form>
+
+    <div id="logo">
+    <img src ="https://bazaar2017.herokuapp.com/formularios/Image/logoBazar.png">
+    </div>
+    <center>
+      <h1>CARRITO DE COMPRAS</h1></br>
+      <img src="Image/carrito.jpg"/></br></br>
+      <table border="4">
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Valor unitario</th>
+<th>Cantidad</th>
+<th>Subtotal</th>
+</tr>
+</thead>
+<tbody id= "tabla">
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+    <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+    <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+    <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+    <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+    <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+    <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+    <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+    <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+
+</tbody>
+</table></br></br>
+<div id="comprar" >
+<input type="button" id="FinalizarCompra" value="Realizar Compra" name="compra"/>
+</div>
+</center>
+</form>
+  </body>
+</html>

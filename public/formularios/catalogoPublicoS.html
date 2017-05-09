@@ -106,6 +106,17 @@
   margin-top: 20;
       }
 
+#cantidad1,#cantidad2,#cantidad3,#cantidad4,#cantidad5,#cantidad6{
+  border: 1px solid #DBE1EB;
+  font-size: 15px;
+  font-family: Arial, Verdana;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-bottom: 5px;
+  border-radius: 2px;
+
+
+}
       #logo{
 
         margin-top: 50px;
@@ -204,6 +215,7 @@
 
 
   </style>
+
   <script>
   //Pendiente, para su evaluación
   function encontrarCategoria(){
@@ -223,18 +235,32 @@
 
   function verCarrito(idboton){
     var total=0;
+    var cantidad=0;
     var producto = {};
     if('anadir1'==idboton){
       producto.nombre = "Chevrolet Spark";
       producto.valor = "$50'000.000"
       total+=5000000;
       producto.consol = total;
+      cantidad =  document.getElementById('cantidad1').value;
+      if(cantidad=='0'){
+      producto.cantidad =0;
+    }else{
+      producto.cantidad = cantidad;
+    }
+
     }
     if('anadir2'==idboton){
       producto.nombre = "Portatil ASUS";
       producto.valor = "$1'200.000"
       total+=1200000;
       producto.consol = total;
+      cantidad =  document.getElementById('cantidad2').value;
+      if(cantidad=='0'){
+      producto.cantidad =0;
+      }else{
+        producto.cantidad = cantidad;
+      }
 
     }
     if ('anadir3'==idboton) {
@@ -242,6 +268,12 @@
       producto.valor = "$1'200.000"
       total+=5000000;
       producto.consol = total;
+      cantidad =  document.getElementById('cantidad3').value;
+      if(cantidad=='0'){
+      producto.cantidad =0;
+      }else{
+        producto.cantidad = cantidad;
+      }
 
     }
     if ('anadir4'==idboton) {
@@ -249,6 +281,12 @@
       producto.valor = "$80000"
       total+=80000;
       producto.consol = total;
+      cantidad =  document.getElementById('cantidad4').value;
+      if(cantidad=='0'){
+      producto.cantidad =0;
+      }else{
+        producto.cantidad = cantidad;
+      }
 
     }
     if ('anadir5'==idboton) {
@@ -256,12 +294,24 @@
       producto.valor = "$40000"
       total+=40000;
       producto.consol = total;
+      cantidad =  document.getElementById('cantidad5').value;
+      if(cantidad=='0'){
+      producto.cantidad =0;
+      }else{
+        producto.cantidad = cantidad;
+      }
     }
     if ('anadir6'==idboton) {
       producto.nombre = "Tocador Pieza";
-      producto.valor = "$200000"
-      total+=200000;
+      producto.valor = "$220000"
+      total+=220000;
       producto.consol = total;
+      cantidad =  document.getElementById('cantidad6').value;
+      if(cantidad=='0'){
+      producto.cantidad =0;
+      }else{
+        producto.cantidad = cantidad;
+      }
     }
 
     var transformar="";
@@ -273,12 +323,17 @@
 
     }
 
+    function irAPagina(){
+      document.catalogo.action ="carritoCompras.html";
+      document.catalogo.submit();
+    }
+
 
   </script>
 </head>
 <body >
   <div id = "contenedor" background="blue">
-    <form>
+    <form name="catalogo" action="" method="POST">
       <div id="logo">
       <img src ="https://bazaar2017.herokuapp.com/formularios/Image/logoBazar.png">
       </div>
@@ -289,7 +344,7 @@
 
     <div id="titulo"><h2>Anuncios publicados por los usuarios ultimamente </h2></div>
     <div>
-  		<input type="button" name="carritoCompras" value="Ver carrito de compras" id="carrito"/>
+  		<input type="button" name="carritoCompras" onclick="irAPagina()"value="Ver carrito de compras" id="carrito"/>
   	</div>
     <div> <input type="button" name="buscar" value="Buscar" id="buscar"/>
     </div>
@@ -308,26 +363,32 @@
 
     <div id="miniContenedor" ><img id="imagen1"src="https://img.actualidadmotor.com/wp-content/uploads/2014/11/ford-fiesta-tdci-2-150x150.jpg"></br><h2>$50'000.000</h2></br>
       <p>Chevrolet Spark</p></br></br>
+      <input type="text" id="cantidad1" placeholder="cantidad"class="textbox" size="10" maxlength="10"/></br>
       <input type="button" onclick="verCarrito(this.id)"  value="A&#241;adir al carrito de compras" id="anadir1"</div>
 
     <div id="miniContenedor1"><img src="Image/compu.jpg"></br><h2>$1'200.000</h2></br>
         <p>Portatil ASUS</p></br>
+        <input type="text" id="cantidad2" placeholder="cantidad" class="textbox" size="10" maxlength="10"/></br>
         <input type="button" onclick="verCarrito(this.id)"value="A&#241;adir al carrito de compras" id="anadir2"</div>
 
       <div id="miniContenedorB"><img src="Image/moto.jpg"></br><h2>$5'000.000</h2></br>
         <p>Pulsar NS 200</p></br>
+        <input type="text" id="cantidad3" placeholder="cantidad" class="textbox" size="10" maxlength="10"/></br>
         <input type="button"  onclick="verCarrito(this.id)" value="A&#241;adir al carrito de compras" id="anadir3"</div>
 
         <div id="miniContenedorC"><img src="Image/pantalon.jpg"></br><h2>$80000</h2></br>
           <p>Sudadera Adidas</p></br>
+          <input type="text" id="cantidad4" placeholder="cantidad" class="textbox" size="10" maxlength="10"/></br>
         <input type="button"  onclick="verCarrito(this.id)" value="A&#241;adir al carrito de compras" id="anadir4"</div>
 
           <div id="miniContenedorD"><img src="Image/martillo.jpg"></br><h2>$40000</h2></br>
             <p>Martillo industrial</p></br>
+            <input type="text" id="cantidad5" placeholder="cantidad" class="textbox" size="10" maxlength="10"/></br>
           <input type="button"  onclick="verCarrito(this.id)" value="A&#241;adir al carrito de compras" id="anadir5"</div>
 
           <div id="miniContenedorE"><img src="Image/mueble.jpg"></br><h2>$220000</h2></br>
             <p>Tocador Pieza</p></br>
+            <input type="text" id="cantidad6" placeholder="cantidad" class="textbox" size="10" maxlength="10"/></br>
           <input type="button"  onclick="verCarrito(this.id)" value="A&#241;adir al carrito de compras" id="anadir6"</div>
 
 
