@@ -150,7 +150,7 @@ function retornarCualquierArchivo( request , response ){
 	 var cookies = parseCookies(request);
 	 console.log(cookies.usuario);
 	 if(cookies.usuario == ''){
-		 response.end("Error debe autentificarse antes de continuar!");
+		 response.end("Error 401: Debe autentificarse antes de continuar!");
 	 }
 	 else {
  		fs.readFile(url.substr(1),archivoListo);
