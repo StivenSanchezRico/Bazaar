@@ -61,10 +61,10 @@ server.listen(8088);
 //coffeScript o typeScript
 function atenderServidor(request, response){
   var path = request.url;
-  retornarArchivo(request,response,path.substr(1));
+  retornarCualquierArchivo(request,response);
   console.log('petición recibida : ' + path);
     if(request.url=='/statu.json'){
-        retornarArchivo(request,response,path.substr(1));
+        retornarCualquierArchivo(request,response);
     }
     //Almacena los datos del usuario
   else if(request.url=='/registrar'){
@@ -108,7 +108,7 @@ function borrarCookie( request , response ){
   var resp = {};
   resp.url = '/HomeS.html';
   response.writeHead(200, {
-  'Set-Cookie': 'usuario: ' + ''});
+  'Set-Cookie': 'usuario=' + ''});
   response.end('cookie borrada');
 }
 
@@ -144,19 +144,33 @@ function retornarEncicla(request,response){
     }
 }
 
-function retornarArchivo(request,response,archivoAleer){
+function retornarCualquierArchivo( request , response ){
+	var url = request.url;
+	if(url == '/index.html' || url == '/pages/style-demo.html' || url == '/pages/style-demo.html' || url == '/pages/full-width.html' || url == '/pages/portfolio.html' || url == '/pages/gallery.html'){
+	 var cookies = parseCookies(request);
+	 console.log(cookies.usuario);
+	 if(cookies.usuario == ''){
+		 response.end();
+	 }
+	 else {
+ 		fs.readFile(url.substr(1),archivoListo);
+    console.log('hola');
+	 }
+	}
+	else {
+		fs.readFile(url.substr(1),archivoListo);
+	}
 
-  fs.readFile(archivoAleer,archivoListo);
-
-  function archivoListo(error,data){
-    if(error==null){
-      response.write(data);
-      response.end();
-    }else {
-        console.log(error);
-        response.end(error.toString());
-    }
-  }
+	function archivoListo(error,data){
+		if(error == null){
+			response.write(data);
+			response.end();
+		}
+		else{
+			console.log(error);
+			response.end(error.toString());
+		}
+	}
 }
 
 function leerArchivos(){
@@ -228,9 +242,8 @@ function login(request,response){
         resp.estado = 'OK';
         resp.url = '/index.html';
         //Enviar cookie al navegador
-        response.writeHead(200,{
-          'Set-cookie':  'usuario: '+usr.correo
-        });
+        response.writeHead(200, {
+        'Set-Cookie': 'usuario=' + usr.correo });
         //Serializar el objeto y enviar de vuelta al navegador
         response.end(JSON.stringify(resp));
         return;
