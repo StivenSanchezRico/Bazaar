@@ -13,11 +13,16 @@ function salir(){
 }
 function guardarCampos(){
   var comentario = {};
+  html = "";
   comentario.name = document.getElementById("name").value;
   comentario.email = document.getElementById('email').value;
   comentario.comment = document.getElementById('comment').value;
+  html = html + "<li class="+comment_odd+"><div class="+author+"><img class="avatar" src="+../images/demo/avatar.gif+" width="+32+" height="+32+" /><span class="+name+"><a href="+#+">"+comentario.name+"</a></span> </div><p>"+comentario.comment+"</p></li>";
+  document.getElementById("comentarios").innerHTML = html;
   return comentario;
 }
+
+var data;
 function comentario(){
   var comentario = guardarCampos();
 
@@ -32,24 +37,9 @@ function comentario(){
   //Ejecuta la peticion HTTP
   request.send(serializado);
 
-  var rta = xhr.responseText;
-  //
-    window.alert(rta);
-  return JSON.parse(rta);
-  mostrarDatos()
-}
-function mostrarDatos()
-{
-var datos = comentario();
-var html= "";
-
-for(var i = 0; i < datos.length; i++)
-{
-  var paso = datos[i];
-  html = html +"<li><div><span><a"+paso.name+"</a></span></div><p>"+paso.email+"</p></li>";
-
-document.getElementById("comentarios").innerHTML = html;
-}
+  var rta = request.responseText;
+  data = JSON.parse(rta);
+  var html= "";
 }
 </script>
 </head>
@@ -57,7 +47,7 @@ document.getElementById("comentarios").innerHTML = html;
   <div class="wrapper col1">
     <div id="header" class="clear">
       <div class="fl_left">
-        <h1><a href="../index.html">Bazaar</a></h1>
+        <h1><a href="../catalogoPublicoS.html">Bazaar</a></h1>
         <p>comenta</p>
       </div>
       <div class="fl_right"><a href="#"><img src="../images/demo/logoBazar.png" alt="" /></a></div>
@@ -130,9 +120,10 @@ document.getElementById("comentarios").innerHTML = html;
             <label for="comment" style="display:none;"><small>Comentario (Requerido)</small></label>
           </p>
           <p>
-            <input name="submit" type="submit" id="submit" value="Comentar" onclick="comentar()"/>
+            <input name="submit" type="submit" id="submit" value="Comentar" onclick="comentario()"/>
             &nbsp;
             <input name="reset" type="reset" id="reset" tabindex="5" value="Borrar" />
+            <button type="button" name="button" onclick="cargarDatos()">cargar</button>
           </p>
         </form>
       </div>
