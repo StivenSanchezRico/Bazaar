@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html><html>
   <head>
   <title></title>
   <script src= "https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -32,9 +32,6 @@
 
 
     #terminarCompra{
-
-        margin-top: -43px;
-        margin-left: 400px;
         border: 1px solid #DBE1EB;
         font-size: 18px;
         font-family: Arial, Verdana;
@@ -57,6 +54,45 @@
     h1{
         font-family: Arial, Verdana;
         color: blue;
+    }
+    #tabla{
+       border: 1px solid #DBE1EB;
+       font-size: 18px;
+       font-family: Arial, Verdana;
+       padding-left: 7px;
+       padding-right: 7px;
+       padding-top: 10px;
+       padding-bottom: 10px;
+       border-radius: 4px;
+       -moz-border-radius: 4px;
+       -webkit-border-radius: 4px;
+       -o-border-radius: 4px;
+       background: #FFFFFF;
+       background: linear-gradient(left, #FFFFFF, #F7F9FA);
+       background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
+       background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
+       background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
+       color: black;
+    }
+
+    #mensaje{
+      border: 1px solid #DBE1EB;
+      font-size: 18px;
+      font-family: Arial, Verdana;
+      padding-left: 7px;
+      padding-right: 7px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 4px;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      -o-border-radius: 4px;
+      background: #FFFFFF;
+      background: linear-gradient(left, #FFFFFF, #F7F9FA);
+      background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
+      background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
+      background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
+      color: blue;
     }
 
 
@@ -83,33 +119,6 @@
 });
     }
 
-    /*function mostrarDatos(datos)
-		{
-      console.log(datos);
-		var html= "";
-
-		for(var comuna = 0; comuna < datos.length; comuna++)
-		{
-			var actual = datos.[comuna];
-
-		for (var estacion = 0; estacion< actual.length; estacion++ )
-			{
-			var paso = actual.items[estacion];
-			posicion = paso;
-			if(paso.bikes==0){
-				html = html + "<tr style=background:red> <td>"+paso.name+"</td> <td>" +paso.bikes+"</td> <td>"+paso.places+"</td></tr>";
-			}
-			else if(paso.places==null){
-				html = html + "<tr style=background:orange> <td>"+paso.name+"</td> <td>" +paso.bikes+"</td> <td>"+paso.places+"</td></tr>";
-			}
-			else
-			html = html + "<tr style=background:color> <td>"+paso.name+"</td> <td>" +paso.bikes+"</td> <td>"+paso.places+"</td></tr>";
-			}
-		}
-
-		document.getElementById("tabla").innerHTML = html;
-  }*/
-
     function mostrarDatos1(datos)
 		{
       var total=0;
@@ -130,7 +139,7 @@
 			}
       if(datos[comuna].nombre=="Pulsar NS 200"||datos[comuna].nombre=="Portatil ASUS"||datos[comuna].nombre=="Tocador Pieza"){
         subtotal = datos[comuna].consol * datos[comuna].cantidad;
-        html = html + "<tr style=background:blue> <td>"+datos[comuna].nombre+"</td> <td>" +datos[comuna].consol+"</td> <td>"+datos[comuna].cantidad+"</td>"+"<td>"+subtotal+"</td><tr>";
+        html = html + "<tr style=background:white> <td>"+datos[comuna].nombre+"</td> <td>" +datos[comuna].consol+"</td> <td>"+datos[comuna].cantidad+"</td>"+"<td>"+subtotal+"</td><tr>";
         total+=subtotal;
       }
 
@@ -143,7 +152,12 @@
 		}
 
     function hacerPago(){
+      document.getElementById('mensaje').innerText = "Su solicitud esta siendo procesada......"
+    }
 
+    function cancelarPedido(){
+      document.carrito.action="catalogoPublicoS.html";
+      document.carrito.submit();
     }
 
 
@@ -153,15 +167,14 @@
   </head>
 
   <body onload="cargarA()">
-    <form>
-
+    <form name="carrito" method="POST" action="">
     <div id="logo">
     <img src ="https://bazaar2017.herokuapp.com/formularios/Image/logoBazar.png">
     </div>
     <center>
       <h1>CARRITO DE COMPRAS</h1></br>
       <img src="Image/carrito.jpg"/></br></br>
-      <table border="4">
+      <table>
 <thead>
 <tr>
 <th>Nombre</th>
@@ -287,11 +300,13 @@
 </tbody>
 </table></br></br>
 <div id="comprar" >
-<input type="button" id="FinalizarCompra" value="Realizar Compra" name="compra"/>
+<input type="button" onclick="hacerPago()" id="FinalizarCompra" value="Realizar Compra" name="compra"/>
 </div>
 <div id="comprar" >
-<input type="button" id="terminarCompra" value="Cancelar Compra" name="compra"/>
-</div>
+<input type="button" onclick="cancelarPedido()"id="terminarCompra" value="Cancelar Compra" name="compra"/>
+</div></br>
+
+<div id="mensaje"></div>
 </center>
 </form>
   </body>

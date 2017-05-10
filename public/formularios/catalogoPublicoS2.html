@@ -62,8 +62,8 @@
       }
 
 	  #carrito{
-	     margin-left:750px;
-       margin-top: -110px;
+      margin-left:750px;
+      margin-top: -110px;
 
         border: 1px solid #DBE1EB;
         font-size: 18px;
@@ -123,64 +123,13 @@
         margin-left: 30px;
       }
 
-      #miniContenedor{
-        margin-left: 30px;
-
-        width: 300px;
-        height: 450px;
-        border: 2px solid #87CEEB;
-        font-size: 18px;
-        font-family: Arial, Verdana;
-        text-align: center;
-
-
-      }
-
       #miniContenedor1{
-        margin-top: -400px;
-        margin-left: 350px;
         width: 300px;
         height: 450px;
         border: 2px solid #87CEEB;
         font-size: 18px;
         font-family: Arial, Verdana;
         text-align: center;
-      }
-
-      #miniContenedorB{
-        margin-top: -400px;
-        margin-left: 340px;
-        width: 300px;
-        height: 450px;
-        border: 2px solid #87CEEB;
-        font-size: 18px;
-        font-family: Arial, Verdana;
-        text-align: center;
-      }
-
-      #miniContenedorC{
-        margin-left: -692px;
-        border: 2px solid #87CEEB;
-        margin-top: 110px;
-        width: 300px;
-        height: 450px;
-
-      }
-
-      #miniContenedorD{
-        margin-top: -400px;
-        margin-left: 348px;
-        border: 2px solid #87CEEB;
-        width: 300px;
-        height: 450px;
-      }
-
-      #miniContenedorE{
-        margin-top: -400px;
-        border: 2px solid #87CEEB;
-        margin-left: 341px;
-        width: 300px;
-        height: 450px;
       }
 
       #titulo{
@@ -217,7 +166,7 @@
   </style>
 
   <script>
-  //Permite encontrar la categoria que indique el usuario
+  //Pendiente, para su evaluación
   function encontrarCategoria(){
 	//Mostrar categoria
 	var categoria = document.getElementById('buscarCategoria').value;
@@ -334,7 +283,9 @@
       document.catalogo.submit();
     }
 
-
+    function irApagina2(direccion){
+      window.open(direccion,"Hola");
+    }
 
 
   </script>
@@ -363,38 +314,15 @@
         <option value="mueblesJuguetes"> Muebles y jugueter&#237;a </option>
         <option value="accesoriosHerramientas"> Accesorios y herramientas </option>
 
+
       </select>
     </div>
-
-    <div id="miniContenedor" ><img id="imagen1"src="https://img.actualidadmotor.com/wp-content/uploads/2014/11/ford-fiesta-tdci-2-150x150.jpg"></br><h2>$50'000.000</h2></br>
-      <p>Chevrolet Spark</p></br>
-      <input type="text" id="cantidad1" placeholder="cantidad"class="textbox" size="10" maxlength="10"/></br>
-      <input type="button" onclick="verCarrito(this.id)"  value="A&#241;adir al carrito" id="anadir1"</div>
 
     <div id="miniContenedor1"><img src="Image/compu.jpg"></br><h2>$1'200.000</h2></br>
         <p>Portatil ASUS</p></br>
         <input type="text" id="cantidad2" placeholder="cantidad" class="textbox" size="10" maxlength="10"/></br>
         <input type="button" onclick="verCarrito(this.id)"value="A&#241;adir al carrito" id="anadir2"</div>
 
-      <div id="miniContenedorB"><img src="Image/moto.jpg"></br><h2>$5'000.000</h2></br>
-        <p>Pulsar NS 200</p></br>
-        <input type="text" id="cantidad3" placeholder="cantidad" class="textbox" size="10" maxlength="10"/></br>
-        <input type="button"  onclick="verCarrito(this.id)" value="A&#241;adir al carrito" id="anadir3"</div>
-
-        <div id="miniContenedorC"><img src="Image/pantalon.jpg"></br><h2>$80000</h2></br>
-          <p>Sudadera Adidas</p></br>
-          <input type="text" id="cantidad4" placeholder="cantidad" class="textbox" size="10" maxlength="10"/></br>
-        <input type="button"  onclick="verCarrito(this.id)" value="A&#241;adir al carrito" id="anadir4"</div>
-
-          <div id="miniContenedorD"><img src="Image/martillo.jpg"></br><h2>$40000</h2></br>
-            <p>Martillo industrial</p></br>
-            <input type="text" id="cantidad5" placeholder="cantidad" class="textbox" size="10" maxlength="10"/></br>
-          <input type="button"  onclick="verCarrito(this.id)" value="A&#241;adir al carrito" id="anadir5"</div>
-
-          <div id="miniContenedorE"><img src="Image/mueble.jpg"></br><h2>$220000</h2></br>
-            <p>Tocador Pieza</p></br>
-            <input type="text" id="cantidad6" placeholder="cantidad" class="textbox" size="10" maxlength="10"/></br>
-          <input type="button"  onclick="verCarrito(this.id)" value="A&#241;adir al carrito" id="anadir6"</div>
 
 
     </form>
