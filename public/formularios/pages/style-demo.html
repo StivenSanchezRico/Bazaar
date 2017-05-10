@@ -35,6 +35,7 @@ function comentario(){
 
   var rta = request.responseText;
   var data = JSON.parse(rta);
+  alert(data);
   var html= "";
   for(var i=0; i < data.length; i++){
     html = html + "<li><div><span><a>"+data[i].name+"</a></span> </div><p>"+data[i].comment+"</p></li>";

@@ -146,7 +146,7 @@ function retornarEncicla(request,response){
 
 function retornarCualquierArchivo( request , response ){
 	var url = request.url;
-	if(url == '/index.html' || url == '/pages/style-demo.html' || url == '/pages/full-width.html' || url == '/pages/portfolio.html' || url == '/pages/gallery.html'){
+	if(url == '/index.html' || url == '/pages/style-demo.html' || url == '/pages/full-width.html' || url == '/pages/portfolio.html' || url == '/pages/gallery.html' || url == '/catalogoPublicoS.html'){
 	 var cookies = parseCookies(request);
 	 console.log(cookies.usuario);
 	 if(cookies.usuario == ''){

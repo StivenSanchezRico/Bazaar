@@ -134,7 +134,7 @@
       console.log(datos[comuna].nombre);
 			if(datos[comuna].nombre=="Martillo Industrial"||datos[comuna].nombre=="Sudadera Adidas"||datos[comuna].nombre=="Chevrolet Spark"){
         subtotal = datos[comuna].consol * datos[comuna].cantidad;
-				html = html + "<tr style=background:blue> <td>"+datos[comuna].nombre+"</td> <td>" +datos[comuna].consol+"</td> <td>"+datos[comuna].cantidad+"</td>"+"<td>"+subtotal+"</td></tr>";
+				html = html + "<tr style=background:steelblue> <td>"+datos[comuna].nombre+"</td> <td>" +datos[comuna].consol+"</td> <td>"+datos[comuna].cantidad+"</td>"+"<td>"+subtotal+"</td></tr>";
         total+=subtotal;
 			}
       if(datos[comuna].nombre=="Pulsar NS 200"||datos[comuna].nombre=="Portatil ASUS"||datos[comuna].nombre=="Tocador Pieza"){
@@ -144,7 +144,7 @@
       }
 
 		}
-      html = html + "<tr style=background:red> <td>"+"TOTAL"+"</td> <td>"+"__"+"</td> <td>"+"__"+"</td>"+"<td>"+total+"</td><tr>";
+      html = html + "<tr style=background:#BB2E2E> <td>"+"TOTAL"+"</td> <td>"+"__"+"</td> <td>"+"__"+"</td>"+"<td>"+total+"</td><tr>";
 
 		document.getElementById("tabla").innerHTML = html;
     console.log("El total es");
