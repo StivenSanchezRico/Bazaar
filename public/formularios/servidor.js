@@ -146,11 +146,11 @@ function retornarEncicla(request,response){
 
 function retornarCualquierArchivo( request , response ){
 	var url = request.url;
-	if(url == '/index.html' || url == '/pages/style-demo.html' || url == '/pages/style-demo.html' || url == '/pages/full-width.html' || url == '/pages/portfolio.html' || url == '/pages/gallery.html'){
+	if(url == '/index.html' || url == '/pages/style-demo.html' || url == '/pages/full-width.html' || url == '/pages/portfolio.html' || url == '/pages/gallery.html'){
 	 var cookies = parseCookies(request);
 	 console.log(cookies.usuario);
 	 if(cookies.usuario == ''){
-		 response.end();
+		 response.end("Error debe autentificarse antes de continuar!");
 	 }
 	 else {
  		fs.readFile(url.substr(1),archivoListo);
