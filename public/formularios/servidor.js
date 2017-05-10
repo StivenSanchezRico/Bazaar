@@ -108,7 +108,7 @@ function borrarCookie( request , response ){
   var resp = {};
   resp.url = '/HomeS.html';
   response.writeHead(200, {
-  'Set-Cookie': 'usuario=' + ''});
+  'Set-Cookie': 'usuario: ' + ''});
   response.end('cookie borrada');
 }
 
