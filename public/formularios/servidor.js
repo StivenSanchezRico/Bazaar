@@ -2,6 +2,7 @@
 var http = require('http');
 var fs = require('fs');
 var hoy = new Date();
+var multer = require('multer');
 
 //Vector que va a almacenar a los usurios registrados
 var usuarios = [];

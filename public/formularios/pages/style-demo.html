@@ -5,6 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
 <script type="text/javascript">
+var fs = require("fs");
+var comentarios = [];
 function salir(){
     var request = new XMLHttpRequest();
   request.open("POST","/salir",false);
@@ -14,33 +16,18 @@ function salir(){
 function guardarCampos(){
   var comentario = {};
   comentario.name = document.getElementById("name").value;
-  comentario.email = document.getElementById('email').value;
   comentario.comment = document.getElementById('comment').value;
   return comentario;
 }
 
 function comentario(){
   var comentario = guardarCampos();
-
-  var serializado = "";
-  //Serializar el objeto como una cadena de texto JSON
-  serializado = JSON.stringify(comentario);
-  window.alert(serializado);
-  //Crear un objeto para hacer Peticiones HTTP
-  var request = new XMLHttpRequest();
-  //Abrir una peticion HTTP POST a la url deseado y no asincronico
-  request.open("POST","/comentar",false);
-  //Ejecuta la peticion HTTP
-  request.send(serializado);
-
-  var rta = request.responseText;
-  var data = JSON.parse(rta);
-  alert(data);
-  var html= "";
-  for(var i=0; i < data.length; i++){
-    html = html + "<li><div><span><a>"+data[i].name+"</a></span> </div><p>"+data[i].comment+"</p></li>";
+  comentarios.push(comentario);
+  fs.writeFile('comentarios.json',JSON.stringify(comentarios),null);
+  for(var i = 0;i < comentarios.length; i++){
+  var html = document.getElementById('comments');
+  html = html + '<b>Nombre: </b><br>comentarios[i]<b>Comentario:</b><p>$comentario</p><br>comentarios[i]';
   }
-  document.getElementById("comentarios").innerHTML = html;
 }
 </script>
 </head>
@@ -63,7 +50,7 @@ function comentario(){
       <li><a href="portfolio.html">Categorias</a></li>
       <li  class="last"><a href="#">Opciones</a>
         <ul>
-          <li><a href="#">Agregar Producto</a></li>
+          <li><a href="../subir.html">Agregar Producto</a></li>
           <li><a href="#">Configuraciones</a></li>
           <li><a href="#" onclick="salir()">Salir</a></li>
         </ul>
