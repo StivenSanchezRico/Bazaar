@@ -151,14 +151,40 @@
     console.log(total);
 		}
 
+    function mostrarDatos2(){
+      var html="";
+      for(var comuna = 0; comuna < 3; comuna++)
+  		{
+  			//var actual = datos[comuna];
+  			//var paso = actual[estacion];
+  			//posicion = paso;
+        //console.log(datos[comuna].nombre);
+
+
+  				html = html + "<tr style=background:steelblue> <td>"+"__"+"</td> <td>" +"__"+"</td> <td>"+"__"+"</td>"+"<td>"+"0"+"</td></tr>";
+
+
+  		}
+        html = html + "<tr style=background:#BB2E2E> <td>"+"TOTAL"+"</td> <td>"+"__"+"</td> <td>"+"__"+"</td>"+"<td>"+"0"+"</td><tr>";
+
+  		document.getElementById("tabla").innerHTML = html;
+      document.getElementById('mensaje').innerText = "Solicitud cancelada";
+    }
+
     function hacerPago(){
-      document.getElementById('mensaje').innerText = "Su solicitud esta siendo procesada......"
+      document.getElementById('mensaje').innerText = "Su solicitud esta siendo procesada......";
       window.setTimeout(function(){solicitudProcesada()},3000);
-      window.setTimeout(function(){cancelarPedido()},3000);
+      window.setTimeout(function(){cancPed()},8000);
 
     }
 
     function cancelarPedido(){
+      window.setTimeout(function(){mostrarDatos2()},3000);
+      window.setTimeout(function(){cancPed()},7000);
+
+    }
+
+    function cancPed(){
       document.carrito.action="catalogoPublicoS.html";
       document.carrito.submit();
     }
