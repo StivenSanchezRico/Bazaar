@@ -33,11 +33,21 @@ function salir(){
   request.open("POST","/salir",false);
   request.send();
   window.location.href = '/HomeS.html';
+
+}
+
+function obtenerNombre(){
+  var request = new XMLHttpRequest();
+  request.open("POST","/obtener",false);
+  request.send();
+  var respuesta;
+  respuesta = JSON.parse(request.responseText);
+  console.log(respuesta);
 }
 </script>
 <!-- / coinslider -->
 </head>
-<body id="top">
+<body id="top" onload="">
 <div class="wrapper col1">
   <div id="header" class="clear">
     <div class="fl_left">

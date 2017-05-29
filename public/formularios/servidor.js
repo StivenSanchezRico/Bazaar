@@ -231,16 +231,18 @@ function login(request,response){
   request.on("data",recibir);
 
   function recibir(data) {
+    var nombre;
     var usr = JSON.parse( data.toString() );
     //Realiza la busqueda en el arhivo JSON
     for(var i = 0; i < usuarios.length; i++){
       if(usuarios[i].correo == usr.correo && usuarios[i].contrasena == usr.contrasena){
         //El usuario y la clave son correctos
         //Retornamos la respuesta
-
+        nombre = usuarios[i].nombre;
         var resp = {};
         resp.estado = 'OK';
         resp.url = '/index.html';
+        resp.nombre = nombre;
         //Enviar cookie al navegador
         response.writeHead(200, {
         'Set-Cookie': 'usuario=' + usr.correo });

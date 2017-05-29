@@ -8,6 +8,9 @@
       usuario.contrasena = document.getElementById('contrasena1').value;
       return usuario;
     }
+
+    //Funcion que permitirá conocer que usuario se encuentra actualmente registrado
+
     function ingresar() {
       var usuario = salvarCampos();
 
@@ -27,7 +30,8 @@
 
       if(respuesta.estado == 'OK'){
         //Login correctos
-        window.location.href = '/index.html'
+        window.alert(respuesta.nombre);
+        window.location.href = '/index.html';
       }else{
       window.alert('login incorrecto');
       }
