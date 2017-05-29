@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Subir Producto</title>
+    <style media="screen">
+    body { font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif; } 
+	contact_form h2, .contact_form label { font-family: Georgia, Times, "Times New Roman", serif; }
+    </style>
+  </head>
+  <body>
+    <form class="contact_form" style="margin-top:1.5em" action="/subir" method="POST" enctype="multipart/form-data">
+	<h2>Agregar Producto</h2>
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" name="tittle" placeholder="Nombre del producto" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Despcrición</label>
+          <textarea name="description" placeholder="Descripción del producto" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Costo</label>
+          <input type="number" name="princing" placeholder="Costo" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Imagen del Producto</label>
+          <input type="file" name="image_avatar">
+        </div>
+        <div class="form-group text-right">
+          <input type="submit" value="Guardar" class="btn btn-info">
+        </div>
+    </form>
+
+  </body>
+</html>
