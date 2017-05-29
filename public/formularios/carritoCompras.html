@@ -153,11 +153,18 @@
 
     function hacerPago(){
       document.getElementById('mensaje').innerText = "Su solicitud esta siendo procesada......"
+      window.setTimeout(function(){solicitudProcesada()},3000);
+      window.setTimeout(function(){cancelarPedido()},3000);
+
     }
 
     function cancelarPedido(){
       document.carrito.action="catalogoPublicoS.html";
       document.carrito.submit();
+    }
+
+    function solicitudProcesada(){
+      document.getElementById('mensaje').innerText = "Su solicitud fue procesada con exito"
     }
 
 
