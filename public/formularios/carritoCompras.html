@@ -168,7 +168,7 @@
         html = html + "<tr style=background:#BB2E2E> <td>"+"TOTAL"+"</td> <td>"+"__"+"</td> <td>"+"__"+"</td>"+"<td>"+"0"+"</td><tr>";
 
   		document.getElementById("tabla").innerHTML = html;
-      document.getElementById('mensaje').innerText = "Solicitud cancelada";
+      document.getElementById('mensaje').innerText = "Solicitud cancelada con exito";
     }
 
     function hacerPago(){
@@ -193,13 +193,19 @@
       document.getElementById('mensaje').innerText = "Su solicitud fue procesada con exito"
     }
 
+    function elemento(e){
+  if (e.srcElement)
+	  tag = e.srcElement.id;
+  else if (e.target)
+  	  tag = e.target.id;
+}
 
 
 </script>
 
   </head>
 
-  <body onload="cargarA()">
+  <body onload="cargarA()" >
     <form name="carrito" method="POST" action="">
     <div id="logo">
     <img src ="https://bazaar2017.herokuapp.com/formularios/Image/logoBazar.png">
@@ -336,7 +342,7 @@
 <input type="button" onclick="hacerPago()" id="FinalizarCompra" value="Realizar Compra" name="compra"/>
 </div>
 <div id="comprar" >
-<input type="button" onclick="cancelarPedido()"id="terminarCompra" value="Cancelar Compra" name="compra"/>
+<input type="button"   onclick="cancelarPedido()"id="terminarCompra" value="Cancelar Compra" name="compra"/>
 </div></br>
 
 <div id="mensaje"></div>
